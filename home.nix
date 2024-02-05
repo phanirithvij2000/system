@@ -45,6 +45,7 @@
     yq
     jq
     viddy
+    duf
 
     # nix related
     #
@@ -52,7 +53,6 @@
     # with more details log output
     nix-output-monitor
 
-    # productivity
     glow # markdown previewer in terminal
 
     btop  # replacement of htop/nmon
@@ -60,17 +60,14 @@
     iftop # network monitoring
   ];
 
-  # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
     userName = "phanirithvij";
     userEmail = "phanirithvij2000@gmail.com";
   };
 
-  # starship - an customizable prompt for any shell
   programs.starship = {
     enable = true;
-    # custom settings
     settings = {
       add_newline = false;
       aws.disabled = true;
@@ -85,6 +82,7 @@
     bashrcExtra = ''
     export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
     eval "$(zoxide init bash)"
+    eval "$(navi widget bash)"
 
     fzfalias() {
       fzf --height 60% --layout=reverse \
