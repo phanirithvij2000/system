@@ -95,7 +95,7 @@
     }
     lazygit_fzf() {
       local repo
-      repo=$(yq ".recentrepos | @tsv" ~/.config/lazygit/state.yml | sed -e "s/\"//g" -e "s/\\\\\\\\t/\n/g" | fzfalias "lazygit-repos")
+      repo=$(yq ".recentrepos | @tsv" ~/.config/lazygit/state.yml | sed -e "s/\"//g" -e "s/\\\\t/\n/g" | fzfalias "lazygit-repos")
       if [ -n "$repo" ]; then
          pushd "$repo" || return 1
          lazygit
