@@ -7,6 +7,9 @@
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    blobdrop.url = "github:vimpostor/blobdrop";
+    blobdrop.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -14,6 +17,7 @@
     nixpkgs,
     alejandra,
     home-manager,
+    blobdrop,
     ...
   }: {
     nixosConfigurations = {
@@ -22,7 +26,7 @@
 
         modules = [
           {
-            environment.systemPackages = [alejandra.defaultPackage.${system}];
+            environment.systemPackages = [alejandra.defaultPackage.${system} blobdrop.packages.${system}.default];
           }
 
           ./configuration.nix
