@@ -31,37 +31,26 @@
   };
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
-  networking.hostName = "iron"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+  networking.hostName = "iron";
+  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
     useXkbConfig = true; # use xkb.options in tty.
   };
 
-  # Enable the X11 windowing system.
   services.xserver.enable = true;
-
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
+
+  hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = false;
-  # Enable sound.
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -86,8 +75,6 @@
   };
   nixpkgs.config.allowUnfree = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  # TODO: hashed password with mkpasswd
   users.users.rithvij = {
     isNormalUser = true;
     hashedPassword = "$y$j9T$CIlZr8283694QRRuk5LV61$2XLbPeB3WADV.jZLC7rXYGJ0GhZgGk7LQwyDXfI4dUD";
@@ -99,7 +86,6 @@
       eza
       mpv
       telegram-desktop
-      zoxide
       # TODO home-manager this stuff
       wezterm
       # TODO systemd-profiles idea I had can now be acheived with nix configurations in flakes
@@ -145,7 +131,6 @@
       # goteleport
       # tailscale
       #
-      navi
       miniserve
       cargo-update
       sccache
@@ -173,7 +158,6 @@
     neovim #programs neovim
     wget
     xclip
-    lf #ctpv
     gdu
     fish #programs fish
     go
@@ -205,7 +189,7 @@
   # not supported with flakes
   # system.copySystemConfiguration = true;
 
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Don't change this at all? Did you read the comment?
 
   nix.gc = {
     automatic = true;
