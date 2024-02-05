@@ -96,22 +96,16 @@
       firefox
       microsoft-edge
       tor-browser
-      tree
       eza
       mpv
       telegram-desktop
-      viddy
-      starship
       zoxide
       # TODO home-manager this stuff
       wezterm
       # TODO systemd-profiles idea I had can now be acheived with nix configurations in flakes
-      bat
       android-file-transfer
-      btop
       espanso
       tmux #programs tmux
-      fzf
       qbittorrent
       aria
       rclone
@@ -122,7 +116,6 @@
       # docker podman docker-compose lazydocker
       distrobox
       rustdesk
-      file
       # rustdesk-server
       # go
       # gup
@@ -148,7 +141,6 @@
       # coreutils
       # onefetch
       # tokei
-      ripgrep
       # zig
       # goteleport
       # tailscale
@@ -161,7 +153,6 @@
       yt-dlp
       sysz
       bun
-      redis
       # caddy xcaddy with godaddy
       # nats cli server
       # jellyfin
@@ -189,6 +180,8 @@
     git
     neofetch
     gparted
+    tree
+    redis
   ];
 
   environment.variables.EDITOR = "nvim";
@@ -220,3 +213,4 @@
     options = "--delete-older-than 30d";
   };
 }
+

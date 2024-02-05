@@ -4,12 +4,16 @@
 
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
     alejandra.inputs.nixpkgs.follows = "nixpkgs";
+
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
     self,
     nixpkgs,
     alejandra,
+    home-manager,
     ...
   }: {
     nixosConfigurations = {
@@ -20,10 +24,16 @@
           {
             environment.systemPackages = [alejandra.defaultPackage.${system}];
           }
+
           ./configuration.nix
-          # Import your other modules here
-          # ./path/to/my/module.nix
-          # ...
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+
+            home-manager.users.rithvij = import ./home.nix;
+          }
         ];
       };
     };
