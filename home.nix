@@ -83,28 +83,29 @@
     enable = true;
     enableCompletion = true;
     bashrcExtra = ''
-      export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
-      eval "$(zoxide init bash)"
+    export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
+    eval "$(zoxide init bash)"
 
-      fzfalias() {
-        fzf --height 60% --layout=reverse \
-    	  --cycle --keep-right --padding=1,0,0,0 \
-    	  --color=label:bold --tabstop=1 --border=sharp \
-    	  --border-label="  $1  " \
-    	  "''${@:2}"
-      }
-      lazygit_fzf() {
-        local repo
-        repo=$(yq ".recentrepos | @tsv" ~/.config/lazygit/state.yml | sed -e "s/\"//g" -e "s/\\\\\\\\t/\n/g" | fzfalias "lazygit-repos")
-        if [ -n "$repo" ]; then
-           pushd "$repo" || return 1
-           lazygit
-           popd || return 1
-        fi
-      }
+    fzfalias() {
+      fzf --height 60% --layout=reverse \
+        --cycle --keep-right --padding=1,0,0,0 \
+        --color=label:bold --tabstop=1 --border=sharp \
+        --border-label="  $1  " \
+        "''${@:2}"
+    }
+    lazygit_fzf() {
+      local repo
+      repo=$(yq ".recentrepos | @tsv" ~/.config/lazygit/state.yml | sed -e "s/\"//g" -e "s/\\\\\\\\t/\n/g" | fzfalias "lazygit-repos")
+      if [ -n "$repo" ]; then
+         pushd "$repo" || return 1
+         lazygit
+         popd || return 1
+      fi
+    }
     '';
 
     shellAliases = {
+      cat = "bat";
       l = "ls";
       ls = "eza";
       ll = "exa --long --header --icons --git -B";
