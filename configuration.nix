@@ -93,32 +93,19 @@
     hashedPassword = "$y$j9T$CIlZr8283694QRRuk5LV61$2XLbPeB3WADV.jZLC7rXYGJ0GhZgGk7LQwyDXfI4dUD";
     extraGroups = ["wheel" "video" "audio" "networkmanager"];
     packages = with pkgs; [
-      firefox
-      microsoft-edge
-      tor-browser
-      eza
-      mpv
-      telegram-desktop
       # TODO home-manager this stuff
-      wezterm
       # TODO systemd-profiles idea I had can now be acheived with nix configurations in flakes
       android-file-transfer
       espanso
-      tmux #programs tmux
-      qbittorrent
       aria
       rclone
       #adb android-tools is too fat and heavy
       scrcpy
-      lazygit
-      upx
       # docker podman docker-compose lazydocker
       distrobox
-      rustdesk
       # rustdesk-server
       # go
       # gup
-      bluetuith
       # distrobox-tui
       # remote-touchpad
       # nats
@@ -149,7 +136,6 @@
       sccache
       pipx
       yt-dlp
-      sysz
       bun
       # caddy xcaddy with godaddy
       # nats cli server
@@ -171,7 +157,11 @@
     neovim #programs neovim
     wget
     xclip
+
     gdu
+    lf
+    tmux #programs tmux
+
     fish #programs fish
     go
     git
@@ -179,6 +169,23 @@
     gparted
     tree
     redis
+    upx
+
+    zip
+    xz
+    unzip
+    p7zip
+    gnutar
+
+    file
+    which
+    sysz
+
+    # nix related
+    #
+    # it provides the command `nom` works just like `nix`
+    # with more details log output
+    nix-output-monitor
   ];
 
   environment.variables.EDITOR = "nvim";

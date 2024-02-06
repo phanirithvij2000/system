@@ -29,20 +29,10 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    neofetch
-
-    zip
-    xz
-    unzip
-    p7zip
-
     ripgrep
     eza
     fzf
 
-    file
-    which
-    gnutar
     yq
     jq
     viddy
@@ -51,25 +41,30 @@
     zoxide
     navi
 
-    lf
     ctpv
     #xdragon
     bat
 
     gh
     hub
-
-    # nix related
-    #
-    # it provides the command `nom` works just like `nix`
-    # with more details log output
-    nix-output-monitor
-
+    lazygit
     glow # markdown previewer in terminal
 
     btop # replacement of htop/nmon
     iotop # io monitoring
     iftop # network monitoring
+    bluetuith
+
+    # desktop apps
+    firefox
+    microsoft-edge
+    tor-browser
+    mpv
+    telegram-desktop
+    qbittorrent
+    rustdesk
+
+    wezterm
   ];
 
   programs.git = {
