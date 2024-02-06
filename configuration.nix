@@ -90,6 +90,7 @@
 
   users.users.rithvij = {
     isNormalUser = true;
+    # Hint: my clash of clans username
     hashedPassword = "$y$j9T$CIlZr8283694QRRuk5LV61$2XLbPeB3WADV.jZLC7rXYGJ0GhZgGk7LQwyDXfI4dUD";
     extraGroups = ["wheel" "video" "audio" "networkmanager"];
     packages = with pkgs; [
