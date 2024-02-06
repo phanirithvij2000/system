@@ -51,6 +51,7 @@
     glow # markdown previewer in terminal
 
     bluetuith
+    devbox
 
     # desktop apps
     firefox
