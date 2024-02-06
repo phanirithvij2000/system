@@ -185,6 +185,13 @@
     # it provides the command `nom` works just like `nix`
     # with more details log output
     nix-output-monitor
+
+    libsmbios
+    dmidecode
+
+    btop # replacement of htop/nmon
+    iotop # io monitoring
+    iftop # network monitoring
   ];
 
   environment.variables.EDITOR = "nvim";
