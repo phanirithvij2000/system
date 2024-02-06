@@ -26,7 +26,10 @@
 
         modules = [
           {
-            environment.systemPackages = [alejandra.defaultPackage.${system} blobdrop.packages.${system}.default];
+            environment.systemPackages = [
+              alejandra.defaultPackage.${system}
+              blobdrop.packages.${system}.default
+            ];
           }
 
           ./configuration.nix
@@ -35,7 +38,6 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-
             home-manager.users.rithvij = import ./home.nix;
           }
         ];
