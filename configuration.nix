@@ -168,7 +168,6 @@
     neofetch
     gparted
     tree
-    redis
     upx
 
     zip
@@ -199,6 +198,8 @@
   # };
 
   services.openssh.enable = true;
+
+  services.redis.servers.redrum.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
