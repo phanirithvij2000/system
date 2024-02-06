@@ -69,9 +69,22 @@
 
   nix = {
     package = pkgs.nixFlakes;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
+    settings = let
+      users = ["root" "rithvij"];
+    in {
+      experimental-features = "nix-command flakes";
+      auto-optimise-store = true;
+      trusted-users = users;
+      allowed-users = users;
+      sandbox = "relaxed";
+      http-connections = 50;
+      log-lines = 50;
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
   };
   nixpkgs.config.allowUnfree = true;
 
@@ -190,10 +203,4 @@
   # system.copySystemConfiguration = true;
 
   system.stateVersion = "24.05"; # Don't change this at all? Did you read the comment?
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  };
 }
