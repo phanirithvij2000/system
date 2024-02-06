@@ -176,6 +176,7 @@
     unzip
     p7zip
     gnutar
+    brotli
 
     file
     which
