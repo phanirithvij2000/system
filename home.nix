@@ -61,6 +61,7 @@
     telegram-desktop
     qbittorrent
     rustdesk
+    koreader
 
     wezterm
   ];
