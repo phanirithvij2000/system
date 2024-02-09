@@ -62,6 +62,7 @@
     qbittorrent
     rustdesk
     koreader
+    qimgv
 
     wezterm
   ];
