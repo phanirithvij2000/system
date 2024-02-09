@@ -205,7 +205,6 @@
     iotop # io monitoring
     iftop # network monitoring
 
-
     # TODO remove this leter when I know enough about python packages building with venv, poetry, devenv whatnot per project
     python3
   ];

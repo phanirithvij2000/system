@@ -63,8 +63,9 @@
     rustdesk
     koreader
     qimgv
-
     wezterm
+
+    ffmpeg-headless
   ];
 
   programs.gh = {
