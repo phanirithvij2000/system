@@ -62,6 +62,8 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = false;
 
+  hardware.opentabletdriver.enable = true;
+
   # TODO learn what rtkit is
   security.rtkit.enable = true;
   services.pipewire = {
@@ -201,8 +203,8 @@
     iotop # io monitoring
     iftop # network monitoring
 
-    wacomtablet
-    xf86_input_wacom
+    #wacomtablet
+    #xf86_input_wacom
 
     # TODO remove this leter when I know enough about python packages building with venv, poetry, devenv whatnot per project
     python3
