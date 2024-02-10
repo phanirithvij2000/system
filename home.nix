@@ -40,6 +40,7 @@
 
     zoxide
     navi
+    joplin
 
     ctpv
     #xdragon
