@@ -56,11 +56,13 @@
   services.xserver.enable = true;
 
   # Enable CUPS to print documents.
+  # TODO scanner stuff
   services.printing.enable = true;
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = false;
 
+  # TODO learn what rtkit is
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -204,6 +206,8 @@
     btop # replacement of htop/nmon
     iotop # io monitoring
     iftop # network monitoring
+
+    wacomtablet
 
     # TODO remove this leter when I know enough about python packages building with venv, poetry, devenv whatnot per project
     python3

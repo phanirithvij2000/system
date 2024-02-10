@@ -14,7 +14,7 @@
 
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usbhid" "usb_storage" "uas" "sd_mod"];
   boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-intel"];
+  boot.kernelModules = ["kvm-intel" "v4l2loopback"];
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
