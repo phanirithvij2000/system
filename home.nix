@@ -66,6 +66,12 @@
     wezterm
 
     ffmpeg-headless
+    miniserve
+    cargo-update
+    sccache
+    pipx
+    yt-dlp
+    bun
   ];
 
   programs.gh = {

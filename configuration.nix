@@ -144,12 +144,6 @@
       # goteleport
       # tailscale
       #
-      miniserve
-      cargo-update
-      sccache
-      pipx
-      yt-dlp
-      bun
       # caddy xcaddy with godaddy
       # nats cli server
       # jellyfin
