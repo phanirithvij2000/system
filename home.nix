@@ -65,8 +65,10 @@
     koreader
     qimgv
     wezterm
+    beekeeper-studio
 
     ffmpeg-headless
+    sqlite-interactive
     miniserve
     cargo-update
     sccache
