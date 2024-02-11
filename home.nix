@@ -9,12 +9,15 @@
   # link the configuration file in current directory to the specified location in home directory
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
 
-  # link all files in `./scripts` to `~/.config/i3/scripts`
-  # home.file.".config/i3/scripts" = {
-  #   source = ./scripts;
-  #   recursive = true;   # link recursively
-  #   executable = true;  # make all files executable
-  # };
+  home.file.".local/share/navi/cheats" = {
+    # make this a flake TODO
+    source = builtins.fetchGit {
+	url = "https://github.com/phanirithvij/navi";
+	name = "phanirithvij__navi";
+	rev = "291e9b8075cc46384e79fe4a1f4029ba5a8628c2";
+    };
+    recursive = true;
+  };
 
   # encode the file content in nix configuration file directly
   # home.file.".xxx".text = ''
