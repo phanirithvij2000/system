@@ -198,8 +198,6 @@
       wpactl = ''viddy "pactl list | rg -U \".*bluez_card(.*\n)*\""'';
       mem = "viddy -p -n 0.1 -c free -h";
 
-      alacritty = "alacritty & disown;tmux splitw;exit";
-      kitty = "kitty & disown;tmux splitw;exit";
       chrome = "google-chrome-stable & disown;tmux splitw;exit";
       nixfire = "nixGL firefox & disown;tmux splitw;exit";
       f = "firefox & disown;tmux splitw;exit";
