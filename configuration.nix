@@ -205,6 +205,7 @@
 
     #wacomtablet
     #xf86_input_wacom
+    btrfs-progs
 
     # TODO remove this leter when I know enough about python packages building with venv, poetry, devenv whatnot per project
     python3
