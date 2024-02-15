@@ -61,7 +61,7 @@
     firefox
     microsoft-edge
     tor-browser
-    mpv
+    mpv-unwrapped
     telegram-desktop
     qbittorrent
     rustdesk
