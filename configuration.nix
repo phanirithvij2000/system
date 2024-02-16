@@ -199,6 +199,9 @@
     libsmbios
     dmidecode
 
+    ddrescue
+    ddrescueview
+
     btop # replacement of htop/nmon
     iotop # io monitoring
     iftop # network monitoring
