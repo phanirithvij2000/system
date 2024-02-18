@@ -69,6 +69,7 @@
     qimgv
     wezterm
     beekeeper-studio
+    yacreader
 
     ffmpeg-headless
     sqlite-interactive
