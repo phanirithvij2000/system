@@ -81,6 +81,8 @@
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
+  services.flatpak.enable = true;
+
   nix = {
     package = pkgs.nixFlakes;
     settings = let
