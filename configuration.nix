@@ -106,6 +106,7 @@
 
   # https://nixos.wiki/wiki/Podman
   virtualisation = {
+    waydroid.enable = true;
     podman = {
       enable = true;
 
