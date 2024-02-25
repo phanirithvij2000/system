@@ -35,6 +35,7 @@
     ripgrep
     eza
     fzf
+    fd
 
     yq
     jq
