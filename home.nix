@@ -75,7 +75,8 @@
     ffmpeg-headless
     sqlite-interactive
     miniserve
-    cargo-update
+    # broken, follow https://github.com/NixOS/nixpkgs/pull/288149 https://nixpk.gs/pr-tracker.html?pr=288149
+    # cargo-update
     sccache
     pipx
     yt-dlp
