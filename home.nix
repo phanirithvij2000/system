@@ -65,7 +65,7 @@
     mpv-unwrapped
     telegram-desktop
     qbittorrent
-    rustdesk
+    #rustdesk #rustdesk takes up time to compile and UI is bad. I prefer its AppImage on nixos
     koreader
     qimgv
     wezterm
