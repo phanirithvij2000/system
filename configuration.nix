@@ -55,6 +55,17 @@
 
   services.xserver.enable = true;
 
+  services.keyd.enable = true;
+  services.keyd.keyboards.default = {
+    ids = ["*"];
+    settings = {
+      main = {
+        "j+k" = "esc";
+        "insert" = "noop";
+      };
+    };
+  };
+
   # Enable CUPS to print documents.
   # TODO scanner stuff
   services.printing.enable = true;
