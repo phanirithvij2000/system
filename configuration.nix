@@ -40,6 +40,8 @@
       magicOrExtension = ''\x7fELF....AI\x02'';
     };
   };
+  # REISUB
+  boot.kernel.sysctl = { "kernel.sysrq" = 1; };
 
   networking.hostName = "iron";
   networking.networkmanager.enable = true;
@@ -62,6 +64,7 @@
       main = {
         "j+k" = "esc";
         "insert" = "noop";
+	"rightcontrol" = "overload(control, sysrq)";
       };
     };
   };
