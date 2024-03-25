@@ -75,11 +75,14 @@
     ffmpeg-headless
     sqlite-interactive
     miniserve
-    # broken, follow https://github.com/NixOS/nixpkgs/pull/288149 https://nixpk.gs/pr-tracker.html?pr=288149
-    # cargo-update
+    cargo-update
     sccache
-    pipx
+    # broken, wait for next release of pipx to land in nixpkgs so 1.4.4
+    # maybe see this https://github.com/pypa/pipx/issues/1278
+    # pipx
     yt-dlp
+    gallery-dl
+    trash-cli
     bun
   ];
 
