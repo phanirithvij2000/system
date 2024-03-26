@@ -146,7 +146,6 @@
       rclone
       #adb android-tools is too fat and heavy
       scrcpy
-      iptables
       # docker podman docker-compose lazydocker
       distrobox
       # rustdesk-server
@@ -237,11 +236,12 @@
     iotop # io monitoring
     iftop # network monitoring
 
+    iptables
     #wacomtablet
     #xf86_input_wacom
     btrfs-progs
 
-    # TODO remove this leter when I know enough about python packages building with venv, poetry, devenv whatnot per project
+    # TODO remove this later when I know enough about python packages building with venv, poetry, devenv whatnot per project
     python3
   ];
 
