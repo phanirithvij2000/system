@@ -79,7 +79,7 @@
     sccache
     # broken, wait for next release of pipx to land in nixpkgs so 1.4.4
     # maybe see this https://github.com/pypa/pipx/issues/1278
-    # pipx
+    pipx
     yt-dlp
     gallery-dl
     trash-cli
