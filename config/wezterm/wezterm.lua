@@ -8,10 +8,9 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
--- config.window_background_opacity = 1
-config.window_background_opacity = 0.5
--- config.font = wezterm.font 'JetBrains Mono'
-config.color_scheme = 'Tomorrow Night Bright'
+config.window_background_opacity = 1
+config.font = wezterm.font 'JetBrains Mono'
+-- config.color_scheme = 'Tomorrow Night Bright'
 
 config.keys = {
   { key = 'l', mods = 'ALT', action = wezterm.action.ShowLauncher },
