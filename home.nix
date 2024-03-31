@@ -20,9 +20,13 @@
   };
 
   # encode the file content in nix configuration file directly
-  # home.file.".xxx".text = ''
-  #     xxx
-  # '';
+  home.file.".cargo/config.toml".text = ''
+      [registries.crates-io]
+      protocol = "sparse"
+
+      [build]
+      rustc-wrapper = "sccache"
+  '';
 
   # set cursor size and dpi for 4k monitor
   xresources.properties = {
