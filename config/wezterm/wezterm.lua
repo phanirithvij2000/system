@@ -21,14 +21,16 @@ config.keys = {
   },
   {
     key = 'b',
-    mods = 'CMD|SHIFT',
+    mods = 'ALT',
     action = act.EmitEvent 'toggle_tab_bar'
   }
 }
 
 wezterm.on('toggle_tab_bar', function(window, pane)
-  local shell_command = "~/.config/wezterm/toggle_tab_bar.sh"
-  os.execute(shell_command)
+  local overrides = window:get_config_overrides() or {}
+  window:toast_notification('wezterm', overrides.enable_tab_bar, nil, 4000)
+  overrides.enable_tab_bar = not overrides.enable_tab_bar
+  window:set_config_overrides(overrides)
 end)
 
 -- Window decorations etc
@@ -56,7 +58,7 @@ config.launch_menu = {}
 config.show_new_tab_button_in_tab_bar = false
 
 -- #tab_bar_maker
-config.enable_tab_bar = true
+config.enable_tab_bar = false
 
 -- https://wezfurlong.org/wezterm/config/appearance.html#retro-tab-bar-appearance
 config.colors = {
