@@ -6,28 +6,6 @@
   home.username = "rithvij";
   home.homeDirectory = "/home/rithvij";
 
-  # link the configuration file in current directory to the specified location in home directory
-  # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
-
-  home.file.".local/share/navi/cheats" = {
-    # make this a flake TODO
-    source = builtins.fetchGit {
-      url = "https://github.com/phanirithvij/navi";
-      name = "phanirithvij__navi";
-      rev = "291e9b8075cc46384e79fe4a1f4029ba5a8628c2";
-    };
-    recursive = true;
-  };
-
-  # encode the file content in nix configuration file directly
-  home.file.".cargo/config.toml".text = ''
-      [registries.crates-io]
-      protocol = "sparse"
-
-      [build]
-      rustc-wrapper = "sccache"
-  '';
-
   # set cursor size and dpi for 4k monitor
   xresources.properties = {
     "Xcursor.size" = 16;
@@ -221,6 +199,30 @@
       # gupupd = ''GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw -ldflags=-s" gup update'';
     };
   };
+
+  # link the configuration file in current directory to the specified location in home directory
+  # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
+
+  home.file.".local/share/navi/cheats" = {
+    # make this a flake TODO
+    source = builtins.fetchGit {
+      url = "https://github.com/phanirithvij/navi";
+      name = "phanirithvij__navi";
+      rev = "291e9b8075cc46384e79fe4a1f4029ba5a8628c2";
+    };
+    recursive = true;
+  };
+
+  # encode the file content in nix configuration file directly
+  home.file.".cargo/config.toml".text = ''
+      [registries.crates-io]
+      protocol = "sparse"
+
+      [build]
+      rustc-wrapper = "sccache"
+  '';
+
+  home.file.".config/wezterm".source = ./config/wezterm;
 
   home.stateVersion = "24.05";
 
