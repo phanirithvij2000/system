@@ -190,11 +190,10 @@
     ];
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     neovim #programs neovim
-    wget
+    wget2
     xclip
 
     gdu
