@@ -218,6 +218,8 @@
 
   home.file.".config/wezterm".source = ./config/wezterm;
   home.file.".config/lf".source = ./config/lf;
+  home.file.".tmux/resize-hook.sh".source = ./config/tmux/resize-hook.sh;
+  home.file.".tmux.conf".source = ./config/tmux/.tmux.conf;
 
   home.stateVersion = "24.05";
 
