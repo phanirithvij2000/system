@@ -41,7 +41,7 @@
     };
   };
   # REISUB
-  boot.kernel.sysctl = { "kernel.sysrq" = 1; };
+  boot.kernel.sysctl = {"kernel.sysrq" = 1;};
 
   networking.hostName = "iron";
   networking.networkmanager.enable = true;
@@ -64,7 +64,7 @@
       main = {
         "j+k" = "esc";
         "insert" = "noop";
-	"rightcontrol" = "overload(control, sysrq)";
+        "rightcontrol" = "overload(control, sysrq)";
       };
     };
   };

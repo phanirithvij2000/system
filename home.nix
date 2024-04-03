@@ -215,11 +215,11 @@
 
   # encode the file content in nix configuration file directly
   home.file.".cargo/config.toml".text = ''
-      [registries.crates-io]
-      protocol = "sparse"
+    [registries.crates-io]
+    protocol = "sparse"
 
-      [build]
-      rustc-wrapper = "sccache"
+    [build]
+    rustc-wrapper = "sccache"
   '';
 
   home.file.".config/wezterm".source = ./config/wezterm;
