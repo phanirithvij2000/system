@@ -223,6 +223,7 @@
   '';
 
   home.file.".config/wezterm".source = ./config/wezterm;
+  home.file.".config/lf".source = ./config/lf;
 
   home.stateVersion = "24.05";
 
