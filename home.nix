@@ -16,7 +16,7 @@
   home.packages = with pkgs; [
     ripgrep
     eza
-    fzf
+    fzf # godsend
     fd
 
     yq
@@ -24,9 +24,9 @@
     viddy
     duf
 
-    zoxide
-    navi
-    joplin
+    zoxide # godsend
+    navi # godsend
+    joplin # slow node tui app
 
     ctpv
     #xdragon
@@ -34,7 +34,7 @@
 
     gh
     hub
-    lazygit
+    lazygit # godsend
     glow # markdown previewer in terminal
 
     bluetuith
@@ -42,7 +42,7 @@
 
     # desktop apps
     firefox
-    microsoft-edge
+    microsoft-edge #for its bing ai integration (slow af)
     tor-browser
     mpv-unwrapped
     telegram-desktop
@@ -59,8 +59,6 @@
     miniserve
     cargo-update
     sccache
-    # broken, wait for next release of pipx to land in nixpkgs so 1.4.4
-    # maybe see this https://github.com/pypa/pipx/issues/1278
     pipx
     yt-dlp
     gallery-dl
@@ -200,9 +198,6 @@
     };
   };
 
-  # link the configuration file in current directory to the specified location in home directory
-  # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
-
   home.file.".local/share/navi/cheats" = {
     # make this a flake TODO
     source = builtins.fetchGit {
@@ -213,7 +208,6 @@
     recursive = true;
   };
 
-  # encode the file content in nix configuration file directly
   home.file.".cargo/config.toml".text = ''
     [registries.crates-io]
     protocol = "sparse"

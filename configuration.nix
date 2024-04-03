@@ -257,6 +257,7 @@
   services.openssh.enable = true;
 
   services.redis.servers.redrum.enable = true;
+  services.redis.servers.redrum.port = 6379;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
