@@ -12,8 +12,3 @@ cmd zi ${{
 	lf -remote "send $id cd \"$result\""
 }}
 
-cmd on-cd &{{
-        zoxide add "$PWD"
-}}
-
-
