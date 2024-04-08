@@ -18,10 +18,9 @@ cmd on-cd &{{
 	zoxide add "$PWD"
 
 	export STARSHIP_SHELL=
-	fmt="$(starship prompt)"
+	fmt="$(starship prompt)%w/%f"
 	lf -remote "send $id set promptfmt \"$fmt\""
 }}
-
 
 # === Trash === [[[
 # TODO checkout github.com/oberblastmeister/trashy which has fzf examples in their readme
