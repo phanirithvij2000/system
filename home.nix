@@ -104,6 +104,7 @@
     enable = true;
     enableCompletion = true;
     bashrcExtra = ''
+      shopt -s expand_aliases
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
       eval "$(zoxide init bash)"
       eval "$(navi widget bash)"
