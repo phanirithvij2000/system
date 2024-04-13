@@ -92,7 +92,7 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
-  services.xserver.displayManager.sddm.enable = true;
+  services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
   services.flatpak.enable = true;
@@ -154,7 +154,6 @@
       # distrobox-tui
       # remote-touchpad
       # nats
-      # chihaya
       # templ
       # rustup
       cargo-binstall

@@ -8,7 +8,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    blobdrop.url = "github:vimpostor/blobdrop";
+    blobdrop.url = "github:vimpostor/blobdrop/ee4eac75d8afa2f68288e462723a29cab5e52c45";
     blobdrop.inputs.nixpkgs.follows = "nixpkgs";
   };
 
