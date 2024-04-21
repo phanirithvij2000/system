@@ -61,7 +61,8 @@
     sccache
     pipx
     yt-dlp
-    gallery-dl
+    # tests fail temp disable
+    #gallery-dl
     trash-cli
     bun
   ];
