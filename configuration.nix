@@ -146,7 +146,7 @@
       rclone
       #adb android-tools is too fat and heavy
       scrcpy
-      podman-compose 
+      podman-compose
       # docker podman lazydocker
       distrobox
       # rustdesk-server

@@ -44,7 +44,6 @@
     firefox
     microsoft-edge #for its bing ai integration (slow af)
     tor-browser
-    mpv-unwrapped
     telegram-desktop
     qbittorrent
     #rustdesk #rustdesk takes up time to compile and UI is bad. I prefer its AppImage on nixos
@@ -71,6 +70,7 @@
     enable = true;
     gitCredentialHelper.enable = true;
   };
+
   programs.git = {
     enable = true;
     userName = "phanirithvij";
@@ -99,6 +99,21 @@
       gcloud.disabled = true;
       line_break.disabled = true;
     };
+  };
+
+  programs.mpv = {
+    # Enable mpv
+    enable = true;
+
+    # Configure mpv
+    config = {
+      auto-window-resize = false;
+    };
+
+    # Install custom scripts
+    scripts = with pkgs; [
+      mpvScripts.uosc
+    ];
   };
 
   programs.bash = {
