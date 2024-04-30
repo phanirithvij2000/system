@@ -174,7 +174,6 @@
       # tokei
       # zig
       # goteleport
-      # tailscale
       #
       # caddy xcaddy with godaddy
       # nats cli server
@@ -271,6 +270,7 @@
 
   services.tailscale = {
 	enable = true;
+	useRoutingFeatures = "client";
   };
 
   # not supported with flakes
