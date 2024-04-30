@@ -263,14 +263,16 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall = {
+    enable = true;
     checkReversePath = "loose";
-    trustedInterfaces = [ "tailscale0" ];
-    allowedUDPPorts = [ config.services.tailscale.port ];
+    trustedInterfaces = ["tailscale0"];
+    allowedUDPPorts = [config.services.tailscale.port];
   };
 
   services.tailscale = {
-	enable = true;
-	useRoutingFeatures = "client";
+    enable = true;
+    useRoutingFeatures = "client";
+    extraUpFlags = ["--login-server http://armyofrats.in"];
   };
 
   # not supported with flakes
