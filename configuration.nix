@@ -121,14 +121,8 @@
   # https://nixos.wiki/wiki/Podman
   virtualisation = {
     # waydroid.enable = true;
-    podman = {
+    docker = {
       enable = true;
-
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
-      dockerCompat = true;
-
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true;
     };
   };
 
@@ -146,7 +140,7 @@
       rclone
       #adb android-tools is too fat and heavy
       scrcpy
-      podman-compose
+      docker-compose
       # docker podman lazydocker
       distrobox
       # rustdesk-server
