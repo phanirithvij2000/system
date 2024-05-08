@@ -202,7 +202,7 @@
     fish #programs fish
     go
     git
-    neofetch
+    fastfetch
     gparted
     tree
     upx
