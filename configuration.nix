@@ -129,7 +129,7 @@
   users.users.tempwl = {
     isNormalUser = true;
     hashedPassword = "$y$j9T$CIlZr8283694QRRuk5LV61$2XLbPeB3WADV.jZLC7rXYGJ0GhZgGk7LQwyDXfI4dUD";
-    extraGroups = ["video" "audio" "networkmanager"];
+    extraGroups = ["wheel" "video" "audio" "networkmanager"];
   };
 
   users.users.rithvij = {
@@ -150,7 +150,6 @@
       # docker podman lazydocker
       distrobox
       # rustdesk-server
-      # go
       # gup
       # distrobox-tui
       # remote-touchpad
@@ -244,6 +243,7 @@
   ];
 
   environment.variables.EDITOR = "nvim";
+  environment.variables.VISUAL = "nvim";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -258,10 +258,6 @@
   services.redis.servers.redrum.enable = true;
   services.redis.servers.redrum.port = 6379;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
   networking.firewall = {
     enable = true;
     checkReversePath = "loose";
