@@ -100,7 +100,7 @@
   nix = {
     package = pkgs.nixFlakes;
     settings = let
-      users = ["root" "rithvij"];
+      users = ["root" "rithvij" "tempwl"];
     in {
       experimental-features = "nix-command flakes";
       auto-optimise-store = true;
@@ -124,6 +124,12 @@
     docker = {
       enable = true;
     };
+  };
+
+  users.users.tempwl = {
+    isNormalUser = true;
+    hashedPassword = "$y$j9T$CIlZr8283694QRRuk5LV61$2XLbPeB3WADV.jZLC7rXYGJ0GhZgGk7LQwyDXfI4dUD";
+    extraGroups = ["video" "audio" "networkmanager"];
   };
 
   users.users.rithvij = {
