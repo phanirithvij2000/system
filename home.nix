@@ -119,6 +119,7 @@
   programs.bash = {
     enable = true;
     enableCompletion = true;
+    sessionVariables = {HISTTIMEFORMAT = "%Y-%m-%d-%H%M%S ";};
     bashrcExtra = ''
       shopt -s expand_aliases
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
