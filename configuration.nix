@@ -136,7 +136,7 @@
     isNormalUser = true;
     # Hint: my clash of clans username
     hashedPassword = "$y$j9T$CIlZr8283694QRRuk5LV61$2XLbPeB3WADV.jZLC7rXYGJ0GhZgGk7LQwyDXfI4dUD";
-    extraGroups = ["wheel" "video" "audio" "networkmanager"];
+    extraGroups = ["wheel" "video" "audio" "networkmanager" "docker"];
     packages = with pkgs; [
       # TODO home-manager this stuff
       # TODO systemd-profiles idea I had can now be acheived with nix configurations in flakes
