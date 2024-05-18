@@ -50,6 +50,7 @@
     koreader
     qimgv
     wezterm
+    alacritty
     beekeeper-studio
     yacreader
 
