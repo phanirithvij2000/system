@@ -123,6 +123,9 @@
     # waydroid.enable = true;
     docker = {
       enable = true;
+      daemon.settings = {
+        dns = ["192.168.1.1" "1.1.1.1" "9.9.9.9"];
+      };
     };
   };
 
