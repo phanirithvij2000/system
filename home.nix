@@ -123,7 +123,7 @@
     sessionVariables = {HISTTIMEFORMAT = "%Y-%m-%d-%H%M%S ";};
     bashrcExtra = ''
       shopt -s expand_aliases
-      export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
+      export PATH="$PATH:$HOME/.local/bin:$HOME/go/bin"
       eval "$(zoxide init bash)"
       eval "$(navi widget bash)"
 
