@@ -10,6 +10,8 @@
 
     blobdrop.url = "github:vimpostor/blobdrop/ee4eac75d8afa2f68288e462723a29cab5e52c45";
     blobdrop.inputs.nixpkgs.follows = "nixpkgs";
+
+    # TODO jupyenv python, nix, go kernels
   };
 
   outputs = {
