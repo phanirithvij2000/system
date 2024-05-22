@@ -134,8 +134,7 @@
       misc = {
         assume_yes = true;
         disable = [
-          "flutter"
-          "node"
+          "bun"
         ];
         set_title = false;
         cleanup = true;
