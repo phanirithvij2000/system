@@ -15,19 +15,16 @@
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     yq
-    jq
     viddy
     duf
 
     zoxide # godsend
-    navi # godsend
     joplin # slow node tui app
 
     ctpv
     #xdragon
 
     hub
-    lazygit # godsend
     glow # markdown previewer in terminal
 
     # TODO https://github.com/badele/nix-homelab/tree/main?tab=readme-ov-file#tui-floating-panel-configuration
@@ -36,7 +33,6 @@
     devbox
 
     # desktop apps
-    firefox
     microsoft-edge #for its bing ai integration (slow af)
     tor-browser
     telegram-desktop
@@ -65,6 +61,7 @@
   programs.bun.enable = true;
   programs.eza.enable = true;
   programs.fd.enable = true;
+  programs.firefox.enable = true;
   programs.fzf.enable = true; #godsend
   programs.gallery-dl.enable = true;
 
@@ -94,6 +91,12 @@
     };
   };
 
+
+  programs.jq.enable = true;
+  programs.lazygit.enable = true; #godsend
+  # TODO lf with home-manager try later
+
+
   programs.ripgrep.enable = true;
 
   programs.starship = {
@@ -120,6 +123,8 @@
       mpvScripts.uosc
     ];
   };
+
+  programs.navi.enable = true;
 
   programs.bash = {
     enable = true;
