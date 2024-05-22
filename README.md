@@ -2,6 +2,9 @@
 main system configuration including dotfiles, will recreate repo with private dotfiles removed and then make it public
 
 ## TODO
+- [ ] home-manager services
+- [ ] devenv services
+    - per project
 - [ ] extraoptions, username, email, hostname etc. global
 - [ ] modular restructuring
     - allows enabling disabling things
