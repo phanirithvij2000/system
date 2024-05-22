@@ -188,7 +188,6 @@
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
-    neovim #programs neovim
     wget2
     xclip
 
@@ -239,9 +238,6 @@
     #wacomtablet
     #xf86_input_wacom
     btrfs-progs
-
-    # TODO remove this later when I know enough about python packages building with venv, poetry, devenv whatnot per project
-    python3
   ];
 
   environment.variables.EDITOR = "nvim";
@@ -255,6 +251,7 @@
   #   enableSSHSupport = true;
   # };
 
+  programs.neovim.enable = true;
   services.openssh.enable = true;
 
   services.redis.servers.redrum.enable = true;

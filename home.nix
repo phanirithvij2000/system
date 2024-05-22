@@ -50,6 +50,9 @@
     pipx
     yt-dlp
     trash-cli
+
+    # TODO remove this later when I know enough about python packages building with venv, poetry, devenv whatnot per project
+    python3
   ];
 
   programs.alacritty.enable = true;
