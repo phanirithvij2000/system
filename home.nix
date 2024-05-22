@@ -14,11 +14,6 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    ripgrep
-    eza
-    fzf # godsend
-    fd
-
     yq
     jq
     viddy
@@ -30,7 +25,6 @@
 
     ctpv
     #xdragon
-    bat
 
     gh
     hub
@@ -39,7 +33,6 @@
 
     # TODO https://github.com/badele/nix-homelab/tree/main?tab=readme-ov-file#tui-floating-panel-configuration
     pulsemixer
-    bashmount
     bluetuith
     devbox
 
@@ -53,7 +46,6 @@
     koreader
     qimgv
     wezterm
-    alacritty
     beekeeper-studio
     yacreader
 
@@ -64,11 +56,18 @@
     sccache
     pipx
     yt-dlp
-    # tests fail temp disable
-    #gallery-dl
     trash-cli
-    bun
   ];
+
+  programs.alacritty.enable = true;
+  programs.aria2.enable = true;
+  programs.bashmount.enable = true;
+  programs.bat.enable = true;
+  programs.bun.enable = true;
+  programs.eza.enable = true;
+  programs.fd.enable = true;
+  programs.fzf.enable = true; #godsend
+  programs.gallery-dl.enable = true;
 
   programs.gh = {
     enable = true;
@@ -94,6 +93,8 @@
       };
     };
   };
+
+  programs.ripgrep.enable = true;
 
   programs.starship = {
     enable = true;
@@ -151,19 +152,19 @@
     shellAliases = {
       cat = "bat";
       l = "ls";
-      ls = "eza";
-      ll = "exa --long --header --icons --git -B";
-      lla = "exa --long --header --icons --git --all -B";
-      llh = "exa --long --header --icons --git";
-      llS = "exa --long --header --icons --git -B -s size";
-      llSh = "exa --long --header --icons --git -s size";
+      l1 = "llb";
+      l2 = "llab";
+      llb = "eza --long --header --icons --git -B";
+      llab = "eza --long --header --icons --git --all -B";
+      llh = "eza --long --header --icons --git";
+      llS = "eza --long --header --icons --git -B -s size";
+      llSh = "eza --long --header --icons --git -s size";
       opop = "xdg-open";
       lac = "lazyconf";
       laz = "lazygit";
       lad = "lazydocker";
       lar = "lazygit_fzf";
       cd = "z";
-      exa = "eza";
       # gb = "gitbatch";
       b = "btop";
       bl = "bluetuith";

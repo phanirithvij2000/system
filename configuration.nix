@@ -145,7 +145,6 @@
       # TODO systemd-profiles idea I had can now be acheived with nix configurations in flakes
       android-file-transfer
       espanso
-      aria
       rclone
       #adb android-tools is too fat and heavy
       scrcpy
