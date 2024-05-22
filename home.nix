@@ -40,6 +40,7 @@
     qimgv
     beekeeper-studio
     yacreader
+    localsend
 
     ffmpeg-headless
     sqlite-interactive
