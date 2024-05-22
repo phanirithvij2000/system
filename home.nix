@@ -26,7 +26,6 @@
     ctpv
     #xdragon
 
-    gh
     hub
     lazygit # godsend
     glow # markdown previewer in terminal
@@ -73,6 +72,7 @@
     enable = true;
     gitCredentialHelper.enable = true;
   };
+  programs.gh-dash.enable = true;
 
   programs.git = {
     enable = true;
