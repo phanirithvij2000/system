@@ -41,6 +41,7 @@
     beekeeper-studio
     yacreader
     localsend
+    rclone-browser
 
     ffmpeg-headless
     sqlite-interactive
@@ -247,15 +248,6 @@
   '';
 
   ## AppImages
-
-  # rclone-browser appimage
-  home.file."Desktop/rclone-browser-x86_64.AppImage" = {
-    source = builtins.fetchurl {
-      url = "https://github.com/kapitainsky/RcloneBrowser/releases/download/1.8.0/rclone-browser-1.8.0-a0b66c6-linux-x86_64.AppImage";
-      sha256 = "cdf39ce5860d41d5046d413af6d8df422de1275dab348b6d1b4529bd87681ca8";
-    };
-    executable = true;
-  };
 
   #rustdesk takes up time to compile and UI is bad. I prefer its AppImage on nixos
   home.file."Desktop/rustdesk-x86_64.AppImage" = {
