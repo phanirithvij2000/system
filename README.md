@@ -34,4 +34,40 @@ main system configuration including dotfiles, will recreate repo with private do
 - [ ] tailscale on local instead of vps
     - also vps configuration in nix/dockerfiles separate repo?
     - rustdesk, syncplay, tailscale
+- [ ] All these useful nix commands in navi/tmuxp/dmux/espanso/mprocs
+    - hm switch
+    - nixos switch
+    - nix profile
+    - nix-shell, nix shell
+    - nix-shell with python jupyerlab
+    - detsys nix install script
+- [ ] ragenix/sops-nix
+    - Espanso module for this, copy pasting secrets
+
+## NOTES
+
+- home-manager manages itself for now in a single user env
+    - Allows users to manage their own version
+- in a multi-user scenario a single global home-manager can be enabled in the flake modules
+    ```nix
+      nixosConfigurations = {
+        iron = nixpkgs.lib.nixosSystem {
+          modules = [
+            {
+              environment.systemPackages = [
+                home-manager.packages.${system}.default
+              ];
+            }
+          ];
+        };
+      };
+    ```
+- nix flake show can be used with `| less`
+    - for home-manager it crashes (too big?)
+- nix schema supported nix can be installed form detsys's nix fork with schema support
+    - Again at the mercy of the Elco
+- cppnix meson refactor blocked by the Elco, would make it easy to compile it seems with the only con of having python as a build dep but that's ok.
+- nix upgrade-nix blocked by the Elco in favor of detsys/nix-installer
+- nix portable exists which installs nix without sudo
+    - would've been very useful when I was in uni with sudo disabled
 

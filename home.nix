@@ -37,6 +37,9 @@
     lazygit # godsend
     glow # markdown previewer in terminal
 
+    # TODO https://github.com/badele/nix-homelab/tree/main?tab=readme-ov-file#tui-floating-panel-configuration
+    pulsemixer
+    bashmount
     bluetuith
     devbox
 
