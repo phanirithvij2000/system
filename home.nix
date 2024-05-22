@@ -91,7 +91,10 @@
 
   programs.jq.enable = true;
   programs.lazygit.enable = true; #godsend
-  # TODO lf with home-manager try later
+
+  programs.lf.enable = true; #godsend
+  home.file.".config/lf".source = ./config/lf;
+
   programs.mpv = {
     # Enable mpv
     enable = true;
@@ -108,7 +111,10 @@
   };
 
   programs.navi.enable = true;
+
   programs.wezterm.enable = true;
+  home.file.".config/wezterm".source = ./config/wezterm;
+
   programs.ripgrep.enable = true;
 
   programs.starship = {
@@ -238,8 +244,6 @@
     rustc-wrapper = "sccache"
   '';
 
-  home.file.".config/wezterm".source = ./config/wezterm;
-  home.file.".config/lf".source = ./config/lf;
   home.file.".tmux/resize-hook.sh".source = ./config/tmux/resize-hook.sh;
   home.file.".tmux.conf".source = ./config/tmux/.tmux.conf;
 
