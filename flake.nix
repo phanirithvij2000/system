@@ -47,7 +47,6 @@
             environment.systemPackages = [
               alejandra.packages.${system}.default
               blobdrop.packages.${system}.default
-              home-manager.packages.${system}.default
             ];
           }
 

@@ -158,7 +158,6 @@
       cargo-binstall
       # mise
       # hyperfine
-      # git-delta
       # fd-find
       # topgrade
       # neovide
