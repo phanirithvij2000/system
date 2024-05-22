@@ -39,7 +39,6 @@
     #rustdesk #rustdesk takes up time to compile and UI is bad. I prefer its AppImage on nixos
     koreader
     qimgv
-    wezterm
     beekeeper-studio
     yacreader
 
@@ -90,25 +89,9 @@
     };
   };
 
-
   programs.jq.enable = true;
   programs.lazygit.enable = true; #godsend
   # TODO lf with home-manager try later
-
-
-  programs.ripgrep.enable = true;
-  programs.zoxide.enable = true;
-
-  programs.starship = {
-    enable = true;
-    settings = {
-      add_newline = false;
-      aws.disabled = true;
-      gcloud.disabled = true;
-      line_break.disabled = true;
-    };
-  };
-
   programs.mpv = {
     # Enable mpv
     enable = true;
@@ -125,7 +108,20 @@
   };
 
   programs.navi.enable = true;
+  programs.wezterm.enable = true;
+  programs.ripgrep.enable = true;
 
+  programs.starship = {
+    enable = true;
+    settings = {
+      add_newline = false;
+      aws.disabled = true;
+      gcloud.disabled = true;
+      line_break.disabled = true;
+    };
+  };
+
+  programs.zoxide.enable = true;
   programs.bash = {
     enable = true;
     enableCompletion = true;
