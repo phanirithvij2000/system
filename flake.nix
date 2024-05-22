@@ -23,7 +23,21 @@
     ...
   }: let
     system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config = {
+        allowUnfree = true;
+        allowUnfreePredicate = _: true;
+      };
+    };
   in {
+    homeConfigurations = {
+      rithvij = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        modules = [./home.nix];
+      };
+    };
     nixosConfigurations = {
       iron = nixpkgs.lib.nixosSystem {
         inherit system;
@@ -37,13 +51,6 @@
           }
 
           ./configuration.nix
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.rithvij = import ./home.nix;
-          }
         ];
       };
     };
