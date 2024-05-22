@@ -113,7 +113,7 @@
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 30d";
+      options = "--delete-older-than 7d";
     };
   };
   nixpkgs.config.allowUnfree = true;
@@ -149,14 +149,10 @@
       rclone
       #adb android-tools is too fat and heavy
       scrcpy
-      docker-compose
-      # docker podman lazydocker
-      distrobox
       # rustdesk-server
       # gup
       # distrobox-tui
       # remote-touchpad
-      # nats
       # templ
       # rustup
       cargo-binstall
@@ -178,6 +174,7 @@
       # goteleport
       #
       # caddy xcaddy with godaddy
+      # nats
       # nats cli server
       # jellyfin
       # openspeedtestserver
@@ -219,6 +216,10 @@
     file
     which
     sysz
+
+    lazydocker
+    docker-compose
+    distrobox
 
     # nix related
     #
