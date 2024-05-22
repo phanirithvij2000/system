@@ -98,16 +98,12 @@
   programs.lf.enable = true; #godsend
   home.file.".config/lf".source = ./config/lf;
 
+  programs.micro.enable = true;
   programs.mpv = {
-    # Enable mpv
     enable = true;
-
-    # Configure mpv
     config = {
       auto-window-resize = false;
     };
-
-    # Install custom scripts
     scripts = with pkgs; [
       mpvScripts.uosc
     ];
@@ -130,6 +126,7 @@
     };
   };
 
+  programs.tealdeer.enable = true;
   programs.zoxide.enable = true;
   programs.bash = {
     enable = true;
