@@ -21,10 +21,12 @@
     home-manager,
     blobdrop,
     ...
-  }: {
+  }: let
+    system = "x86_64-linux";
+  in {
     nixosConfigurations = {
-      iron = nixpkgs.lib.nixosSystem rec {
-        system = "x86_64-linux";
+      iron = nixpkgs.lib.nixosSystem {
+        inherit system;
 
         modules = [
           {
