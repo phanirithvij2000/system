@@ -18,7 +18,6 @@
     viddy
     duf
 
-    zoxide # godsend
     joplin # slow node tui app
 
     ctpv
@@ -98,6 +97,7 @@
 
 
   programs.ripgrep.enable = true;
+  programs.zoxide.enable = true;
 
   programs.starship = {
     enable = true;
@@ -133,8 +133,6 @@
     bashrcExtra = ''
       shopt -s expand_aliases
       export PATH="$PATH:$HOME/.local/bin:$HOME/go/bin"
-      eval "$(zoxide init bash)"
-      eval "$(navi widget bash)"
 
       fzfalias() {
         fzf --height 60% --layout=reverse \
