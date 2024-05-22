@@ -2,6 +2,7 @@
 main system configuration including dotfiles, will recreate repo with private dotfiles removed and then make it public
 
 ## TODO
+- [ ] extraoptions, username, email, hostname etc. global
 - [ ] modular restructuring
     - allows enabling disabling things
     - hardware-configuration.nix needs to be untouched

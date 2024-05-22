@@ -48,7 +48,6 @@
     cargo-update
     sccache
     pipx
-    yt-dlp
     trash-cli
 
     # TODO remove this later when I know enough about python packages building with venv, poetry, devenv whatnot per project
@@ -127,7 +126,10 @@
   };
 
   programs.tealdeer.enable = true;
+  programs.topgrade.enable = true;
+  programs.yt-dlp.enable = true;
   programs.zoxide.enable = true;
+
   programs.bash = {
     enable = true;
     enableCompletion = true;
