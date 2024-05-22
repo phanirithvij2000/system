@@ -35,7 +35,7 @@ main system configuration including dotfiles, will recreate repo with private do
 - [ ] tailscale on local instead of vps
     - also vps configuration in nix/dockerfiles separate repo?
     - rustdesk, syncplay, tailscale
-- [ ] All these useful nix commands in navi/tmuxp/dmux/espanso/mprocs
+- [ ] All these useful nix commands in navi/tmuxp/dmux/espanso/jupntbks/mprocs
     - hm switch
     - nixos switch
     - nix profile
@@ -44,6 +44,9 @@ main system configuration including dotfiles, will recreate repo with private do
     - detsys nix install script
 - [ ] ragenix/sops-nix
     - Espanso module for this, copy pasting secrets
+- [ ] nix-serve/harmonica
+- [ ] Appimages and all github repos mirror
+- [ ] Docker containers registry mirrors
 
 ## NOTES
 
