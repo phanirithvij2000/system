@@ -49,7 +49,7 @@
       rithvij = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        modules = [./home.nix];
+        modules = [./home];
       };
     };
     nixosConfigurations = {
@@ -64,7 +64,7 @@
             ];
           }
 
-          ./configuration.nix
+          ./nixos/configuration.nix
         ];
       };
     };
