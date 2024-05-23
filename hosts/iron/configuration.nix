@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    ../../nixos
   ];
 
   boot.loader = {
@@ -100,8 +101,9 @@
   nix = {
     package = pkgs.nixFlakes;
     settings = let
-      users = ["root" "rithvij" "tempwl"];
+      users = ["root" "rithvij" "tempwl" "hydra"];
     in {
+      allowed-uris = "github: gitlab: git+ssh:// https://github.com/";
       experimental-features = "nix-command flakes";
       auto-optimise-store = true;
       trusted-users = users;
