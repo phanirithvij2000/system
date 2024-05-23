@@ -82,7 +82,6 @@
     ];
   };
 
-  programs.navi.enable = true;
   programs.poetry.enable = true;
 
   programs.wezterm.enable = true;
@@ -100,7 +99,6 @@
     };
   };
 
-  programs.tealdeer.enable = true;
   programs.topgrade = {
     enable = true;
     # https://github.com/topgrade-rs/topgrade/blob/1e9de5832d977f8f89596253f2880760533ec5f5/config.example.toml
@@ -124,16 +122,6 @@
   programs.yt-dlp.enable = true;
   programs.zoxide.enable = true;
 
-  home.file.".local/share/navi/cheats" = {
-    # make this a flake TODO
-    source = builtins.fetchGit {
-      url = "https://github.com/phanirithvij/navi";
-      name = "phanirithvij__navi";
-      rev = "291e9b8075cc46384e79fe4a1f4029ba5a8628c2";
-    };
-    recursive = true;
-  };
-
   home.file.".cargo/config.toml".text = ''
     [registries.crates-io]
     protocol = "sparse"
@@ -141,20 +129,6 @@
     [build]
     rustc-wrapper = "sccache"
   '';
-
-  ## AppImages
-
-  #rustdesk takes up time to compile and UI is bad. I prefer its AppImage on nixos
-  home.file."Desktop/rustdesk-x86_64.AppImage" = {
-    source = builtins.fetchurl {
-      url = "https://github.com/rustdesk/rustdesk/releases/download/1.2.3-2/rustdesk-1.2.3-2-x86_64.AppImage";
-      sha256 = "309a9be742bc63798064e712d0eb8745987d55f76f32a8d99e2089dba7b0795e";
-    };
-    executable = true;
-  };
-
-  home.file.".tmux/resize-hook.sh".source = ./config/tmux/resize-hook.sh;
-  home.file.".tmux.conf".source = ./config/tmux/.tmux.conf;
 
   home.stateVersion = "24.05";
 
