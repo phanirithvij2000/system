@@ -1,4 +1,6 @@
 {config, ...}: {
+  # TODO blesh
+  # https://github.com/tars0x9752/home/tree/main/modules/blesh
   programs.bash = {
     enable = true;
     enableCompletion = true;

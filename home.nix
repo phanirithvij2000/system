@@ -61,6 +61,10 @@
   programs.bashmount.enable = true;
   programs.bat.enable = true;
   programs.bun.enable = true;
+
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
+
   programs.eza.enable = true;
   programs.fd.enable = true;
   programs.firefox.enable = true;
