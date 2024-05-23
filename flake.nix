@@ -8,7 +8,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    blobdrop.url = "github:vimpostor/blobdrop/ee4eac75d8afa2f68288e462723a29cab5e52c45";
+    blobdrop.url = "github:vimpostor/blobdrop";
     blobdrop.inputs.nixpkgs.follows = "nixpkgs";
 
     # https://github.com/gvolpe/nix-config/blob/d983b5e6d8c4d57152ef31fa7141d3aad465123a/flake.nix#L17
@@ -19,6 +19,13 @@
       url = "github:DeterminateSystems/nix-src/flake-schemas";
     };
     # TODO jupyenv python, nix, go kernels
+
+    # TODO split up flakes
+
+    navi_config = {
+      url = "github:phanirithvij/navi";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -27,6 +34,7 @@
     alejandra,
     home-manager,
     blobdrop,
+    navi_config,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -50,6 +58,8 @@
         inherit pkgs;
 
         modules = [./home];
+
+        extraSpecialArgs = {inherit navi_config;};
       };
     };
     nixosConfigurations = {
