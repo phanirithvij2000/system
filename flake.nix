@@ -74,7 +74,7 @@
             ];
           }
 
-          ./nixos/configuration.nix
+          ./hosts/iron/configuration.nix
         ];
       };
     };
