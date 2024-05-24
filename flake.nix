@@ -26,6 +26,11 @@
       url = "github:phanirithvij/navi";
       flake = false;
     };
+
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -35,6 +40,7 @@
     home-manager,
     blobdrop,
     navi_config,
+    nixos-cosmic,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -73,6 +79,7 @@
               blobdrop.packages.${system}.default
             ];
           }
+          nixos-cosmic.nixosModules.default
 
           ./hosts/iron/configuration.nix
         ];
