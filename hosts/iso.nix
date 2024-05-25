@@ -20,6 +20,9 @@
     nixos.extraGroups = ["networkmanager"];
   };
 
+  # TODO home-manager
+  # navi cheats with nix bookmarks
+  # document all of it
   environment.systemPackages = with pkgs; [
     disko
     neovim

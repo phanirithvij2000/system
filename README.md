@@ -2,6 +2,7 @@
 main system configuration including dotfiles, will recreate repo with private dotfiles removed and then make it public
 
 ## TODO
+- [ ] try ly flake config from https://github.com/NixOS/nixpkgs/pull/297434
 - [ ] mingetty/tty only specilization to act as a server
     - Ideally can be used if I learn to work without a mouse
     - Full nvim
