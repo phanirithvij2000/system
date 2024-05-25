@@ -5,6 +5,12 @@
     enable = true;
     enableCompletion = true;
     sessionVariables = {HISTTIMEFORMAT = "%Y-%m-%d-%H%M%S ";};
+    historyControl = [
+      "erasedups"
+      "ignorespace"
+    ];
+    historyFileSize = 10000000;
+    historySize = 10000000;
     bashrcExtra = ''
       shopt -s expand_aliases
       export PATH="$PATH:$HOME/.local/bin:$HOME/go/bin"
