@@ -2,6 +2,10 @@
 main system configuration including dotfiles, will recreate repo with private dotfiles removed and then make it public
 
 ## TODO
+- [ ] mingetty/tty only specilization to act as a server
+    - Ideally can be used if I learn to work without a mouse
+    - Full nvim
+- [ ] Nixvim - neovim
 - [ ] home-manager services
 - [ ] devenv services
     - per project
@@ -35,10 +39,13 @@ main system configuration including dotfiles, will recreate repo with private do
         - To bootstrap home.nix config [see here](https://nix-community.github.io/home-manager/index.xhtml#sec-flakes-standalone)
             - `nix run home-manager/master -- init #--switch`
 - [ ] ssh keys, ssh certs
+    - yubikey try
 - [ ] tailscale on local instead of vps
     - also vps configuration in nix/dockerfiles separate repo?
     - rustdesk, syncplay, tailscale
 - [ ] All these useful nix commands in navi/tmuxp/dmux/espanso/jupntbks/mprocs
+    - Also nh tool is useful
+        - comes with nom, nvd integration
     - hm switch
     - nixos switch
     - nix profile
@@ -46,10 +53,16 @@ main system configuration including dotfiles, will recreate repo with private do
     - nix-shell with python jupyerlab
     - detsys nix install script
 - [ ] ragenix/sops-nix
+    - yubikey try
     - Espanso module for this, copy pasting secrets
 - [ ] nix-serve/harmonica
 - [ ] Appimages and all github repos mirror
 - [ ] Docker containers registry mirrors
+- [ ] Experimental nix overlay store
+    - Combine 2 nix stores
+- [ ] Styx
+- [ ] NixNG
+    - For creating Containers
 
 ## NOTES
 
