@@ -57,6 +57,7 @@
     ffmpeg-headless
     sqlite-interactive
     miniserve
+    filebrowser
     cargo-update
     sccache
     pipx
