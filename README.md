@@ -2,6 +2,10 @@
 main system configuration including dotfiles, will recreate repo with private dotfiles removed and then make it public
 
 ## TODO
+- [ ] installer iso two variations
+    - One with my full setup
+    - Other is minimal, absolutely necessary steps only
+    - https://github.com/nix-community/nixos-generators
 - [ ] try ly flake config from https://github.com/NixOS/nixpkgs/pull/297434
 - [ ] mingetty/tty only specilization to act as a server
     - Ideally can be used if I learn to work without a mouse
