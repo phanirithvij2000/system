@@ -84,6 +84,13 @@
           ./hosts/iron/configuration.nix
         ];
       };
+
+      defaultIso = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/iso.nix
+        ];
+      };
     };
   };
 }
