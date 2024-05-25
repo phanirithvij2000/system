@@ -220,6 +220,7 @@
     file
     which
     sysz
+    progress
 
     lazydocker
     docker-compose
