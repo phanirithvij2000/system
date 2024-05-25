@@ -79,7 +79,7 @@
               blobdrop.packages.${system}.default
             ];
           }
-          nixos-cosmic.nixosModules.default
+          #nixos-cosmic.nixosModules.default
 
           ./hosts/iron/configuration.nix
         ];
