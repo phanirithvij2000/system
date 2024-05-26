@@ -268,7 +268,7 @@
   networking.firewall = {
     enable = true;
     checkReversePath = "loose";
-    trustedInterfaces = ["tailscale0"];
+    trustedInterfaces = ["tailscale0" "wlp3s0"];
     allowedUDPPorts = [config.services.tailscale.port];
   };
 
