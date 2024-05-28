@@ -153,23 +153,15 @@
     extraGroups = ["wheel" "video" "audio" "networkmanager" "docker"];
     packages = with pkgs; [
       # TODO home-manager this stuff
-      # TODO systemd-profiles idea I had can now be acheived with nix configurations in flakes
-      android-file-transfer
-      espanso
-      rclone
       #adb android-tools is too fat and heavy
-      scrcpy
       # rustdesk-server
       # gup
       # distrobox-tui
       # remote-touchpad
       # templ
       # rustup
-      cargo-binstall
       # mise
       # hyperfine
-      # fd-find
-      # topgrade
       # neovide
       # cargo-zigbuild
       # gping
@@ -189,8 +181,6 @@
       # openspeedtestserver
       # TODO devbox
       # hare?
-      # hub
-      # gh github-cli
       # yadm? chezmoi? dotdrop etc all unncessary with nix I think?
       # TODO home-manager with flakes
       # ntfy-sh
