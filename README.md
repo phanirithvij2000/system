@@ -3,6 +3,7 @@
 main system configuration including dotfiles, will recreate repo with private dotfiles removed and then make it public
 
 ## TODO
+
 - [ ] installer iso two variations
   - One with my full setup
   - Other is minimal, absolutely necessary steps only
@@ -19,7 +20,7 @@ main system configuration including dotfiles, will recreate repo with private do
     - ly flake config from https://github.com/NixOS/nixpkgs/pull/297434
 - [ ] Nixvim - neovim
 - [ ] home-manager services
-    - [x] espanso
+  - [x] espanso
 - [ ] devenv services
   - per project
 - [ ] extraoptions, username, email, hostname etc. global
@@ -79,7 +80,7 @@ main system configuration including dotfiles, will recreate repo with private do
 - [ ] Appimages and all github repos mirror
 - [ ] Docker containers registry mirrors
 - [ ] Experimental nix overlay store
-    - Combine 2 nix stores
+  - Combine 2 nix stores
 - [ ] Styx
   - binary cache substitutor something novel
 - [ ] Stylix
@@ -93,17 +94,17 @@ main system configuration including dotfiles, will recreate repo with private do
   - Allows users to manage their own version
 - in a multi-user scenario a single global home-manager can be enabled in the flake modules
   ```nix
-    nixosConfigurations = {
-      iron = nixpkgs.lib.nixosSystem {
-        modules = [
-          {
-            environment.systemPackages = [
-              home-manager.packages.${system}.default
-            ];
-          }
-        ];
-      };
+  nixosConfigurations = {
+    iron = nixpkgs.lib.nixosSystem {
+      modules = [
+        {
+          environment.systemPackages = [
+            home-manager.packages.${system}.default
+          ];
+        }
+      ];
     };
+  };
   ```
 - nix flake show can be used with `| less`
   - for home-manager it crashes (too big?)
