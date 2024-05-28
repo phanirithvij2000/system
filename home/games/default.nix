@@ -1,5 +1,5 @@
 {...}: {
   imports = [
-    ./minecraft.nix
+    #./minecraft.nix
   ];
 }
