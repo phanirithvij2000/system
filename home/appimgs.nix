@@ -1,4 +1,4 @@
-{...}: {
+_: {
   #rustdesk takes up time to compile and UI is bad. I prefer its AppImage on nixos
   home.file."Desktop/rustdesk-x86_64.AppImage" = {
     source = builtins.fetchurl {

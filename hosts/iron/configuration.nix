@@ -58,14 +58,16 @@
 
   services.xserver.enable = true;
 
-  services.keyd.enable = true;
-  services.keyd.keyboards.default = {
-    ids = ["*"];
-    settings = {
-      main = {
-        "j+k" = "esc";
-        "insert" = "noop";
-        "rightcontrol" = "overload(control, sysrq)";
+  services.keyd = {
+    enable = true;
+    keyboards.default = {
+      ids = ["*"];
+      settings = {
+        main = {
+          "j+k" = "esc";
+          "insert" = "noop";
+          "rightcontrol" = "overload(control, sysrq)";
+        };
       };
     };
   };
@@ -74,8 +76,10 @@
   # TODO scanner stuff
   services.printing.enable = true;
 
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = false;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
+  };
 
   hardware.opentabletdriver.enable = true;
 
@@ -194,62 +198,63 @@
   };
 
   # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [
-    wget2
-    xclip
+  environment = {
+    systemPackages = with pkgs; [
+      wget2
+      xclip
 
-    gdu
-    lf
-    tmux #programs tmux
+      gdu
+      lf
+      tmux #programs tmux
 
-    fish #programs fish
-    go
-    git
-    fastfetch
-    gparted
-    tree
-    upx
+      fish #programs fish
+      go
+      git
+      fastfetch
+      gparted
+      tree
+      upx
 
-    zip
-    xz
-    unzip
-    p7zip
-    gnutar
-    brotli
+      zip
+      xz
+      unzip
+      p7zip
+      gnutar
+      brotli
 
-    file
-    which
-    sysz
-    progress
+      file
+      which
+      sysz
+      progress
 
-    lazydocker
-    docker-compose
-    distrobox
+      lazydocker
+      docker-compose
+      distrobox
 
-    # nix related
-    #
-    # it provides the command `nom` works just like `nix`
-    # with more details log output
-    nix-output-monitor
+      # nix related
+      #
+      # it provides the command `nom` works just like `nix`
+      # with more details log output
+      nix-output-monitor
 
-    libsmbios
-    dmidecode
+      libsmbios
+      dmidecode
 
-    ddrescue
-    ddrescueview
+      ddrescue
+      ddrescueview
 
-    btop # replacement of htop/nmon
-    iotop # io monitoring
-    iftop # network monitoring
+      btop # replacement of htop/nmon
+      iotop # io monitoring
+      iftop # network monitoring
 
-    iptables
-    #wacomtablet
-    #xf86_input_wacom
-    btrfs-progs
-  ];
-
-  environment.variables.EDITOR = "nvim";
-  environment.variables.VISUAL = "nvim";
+      iptables
+      #wacomtablet
+      #xf86_input_wacom
+      btrfs-progs
+    ];
+    variables.EDITOR = "nvim";
+    variables.VISUAL = "nvim";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -9,4 +9,7 @@
   programs.tealdeer.enable = true;
   # buku
   # espanso
+  services.espanso = {
+    enable = true;
+  };
 }

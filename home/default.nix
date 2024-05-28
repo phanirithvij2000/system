@@ -26,6 +26,9 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
+    android-file-transfer
+    rclone
+    scrcpy
     yq
     viddy
     duf
@@ -61,6 +64,7 @@
     filebrowser
     cargo-update
     sccache
+    cargo-binstall
     pipx
     trash-cli
 

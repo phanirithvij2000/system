@@ -53,8 +53,7 @@
     };
     overlays = import ./lib/overlays.nix {inherit inputs system;};
   in {
-    schemas =
-      inputs.flake-schemas.schemas;
+    inherit (inputs.flake-schemas) schemas;
     apps.${system}."nix" = {
       type = "app";
       program = "${pkgs.nix-schema}/bin/nix-schema";
