@@ -226,6 +226,7 @@
       # it provides the command `nom` works just like `nix`
       # with more details log output
       nix-output-monitor
+      nvd
 
       libsmbios
       dmidecode
@@ -257,8 +258,10 @@
   programs.neovim.enable = true;
   services.openssh.enable = true;
 
-  services.redis.servers.redrum.enable = true;
-  services.redis.servers.redrum.port = 6379;
+  services.redis.servers.redrum = {
+    enable = true;
+    port = 6379;
+  };
 
   networking.firewall = {
     enable = true;
