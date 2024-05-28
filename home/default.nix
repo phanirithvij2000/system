@@ -9,6 +9,7 @@
     ./bookmarks.nix
 
     ./git.nix
+    ./games
 
     ./rss.nix
     ./tmux.nix
