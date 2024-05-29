@@ -193,6 +193,7 @@
       # with more details log output
       nix-output-monitor
       nvd
+      nh
 
       libsmbios
       dmidecode
