@@ -155,8 +155,8 @@
       # TODO home-manager this stuff
       #adb android-tools is too fat and heavy
       # rustdesk-server
-      # gup
-      # distrobox-tui
+      # gup # TODO write own overlay/package derivation
+      # distrobox-tui # TODO own go package derivation
       # remote-touchpad
       # templ
       # rustup
@@ -182,7 +182,6 @@
       # TODO devbox
       # hare?
       # yadm? chezmoi? dotdrop etc all unncessary with nix I think?
-      # TODO home-manager with flakes
       # ntfy-sh
     ];
   };
