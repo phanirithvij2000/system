@@ -70,6 +70,38 @@
 
     # TODO remove this later when I know enough about python packages building with venv, poetry, devenv whatnot per project
     python3
+
+    # TODO add this stuff
+    #adb android-tools is too fat and heavy
+    # rustdesk-server
+    # gup # TODO write own overlay/package derivation
+    # distrobox-tui # TODO own go package derivation
+    # remote-touchpad
+    # templ
+    # rustup
+    # mise
+    # hyperfine
+    # neovide
+    # cargo-zigbuild
+    # gping
+    # gitoxide
+    # du-dust
+    # bore-cli
+    # coreutils
+    # onefetch
+    # tokei
+    # zig
+    # goteleport
+    #
+    # caddy xcaddy with godaddy
+    # nats
+    # nats cli server
+    # jellyfin
+    # openspeedtestserver
+    # TODO devbox
+    # hare?
+    # yadm? chezmoi? dotdrop etc all unncessary with nix I think?
+    # ntfy-sh
   ];
 
   programs.alacritty.enable = true;

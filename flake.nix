@@ -91,5 +91,6 @@
         ];
       };
     };
+    formatter.${system} = alejandra.packages.${system}.default;
   };
 }
