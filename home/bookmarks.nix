@@ -2,7 +2,7 @@
 {
   home.packages = [ pkgs.buku ];
   programs.navi.enable = true;
-  home.file.".local/share/navi/cheats" = {
+  home.file.".local/share/navi/cheats/phanirithvij__navi" = {
     source = navi_config;
     recursive = true;
   };
