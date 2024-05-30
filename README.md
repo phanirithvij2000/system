@@ -121,7 +121,7 @@ main system configuration including dotfiles, will recreate repo with private do
 
 ### all
 
-requires: flkupdcmt, fmt, switch, hm-switch
+requires: flkupdcmt, fmt, switch, home-switch
 
 ### switch
 
@@ -129,7 +129,7 @@ requires: flkupdcmt, fmt, switch, hm-switch
 nh os switch .
 ```
 
-### hm-switch
+### home-switch
 
 ```
 nh home switch . -b bak
