@@ -5,7 +5,7 @@ main system configuration including dotfiles, will recreate repo with private do
 ## TODO
 
 - [x] formatter is nixfmt-rfc-style
-    - dprint for other things
+  - dprint for other things
 - [ ] installer iso two variations
   - One with my full setup
   - Other is minimal, absolutely necessary steps only
