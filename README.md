@@ -119,6 +119,10 @@ main system configuration including dotfiles, will recreate repo with private do
 
 ## Tasks
 
+### all
+
+requires: flkupdcmt, fmt, switch, hm-switch
+
 ### switch
 
 ```
@@ -136,4 +140,10 @@ nh home switch . -b bak
 ```
 dprint fmt
 nix fmt
+```
+
+### flkupdcmt
+
+```
+nix flake update --commit-lock-file
 ```
