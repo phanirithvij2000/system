@@ -116,3 +116,24 @@ main system configuration including dotfiles, will recreate repo with private do
 - nix upgrade-nix blocked by the Elco in favor of detsys/nix-installer
 - nix portable exists which installs nix without sudo
   - would've been very useful when I was in uni with sudo disabled
+
+## Tasks
+
+### switch
+
+```
+nh os switch .
+```
+
+### hm-switch
+
+```
+nh home switch . -b bak
+```
+
+### fmt
+
+```
+dprint fmt
+nix fmt
+```

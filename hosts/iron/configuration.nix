@@ -220,6 +220,7 @@
       nvd
       nh
       nixfmt-rfc-style
+      xc
 
       libsmbios
       dmidecode
