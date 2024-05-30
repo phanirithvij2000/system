@@ -30,62 +30,63 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    blobdrop,
-    navi_config,
-    nixos-cosmic,
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit overlays system;
-      config = {
-        allowUnfree = true;
-        allowUnfreePredicate = _: true;
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      blobdrop,
+      navi_config,
+      nixos-cosmic,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit overlays system;
+        config = {
+          allowUnfree = true;
+          allowUnfreePredicate = _: true;
+        };
       };
-    };
-    overlays = import ./lib/overlays.nix {inherit inputs system;};
-  in {
-    inherit (inputs.flake-schemas) schemas;
-    apps.${system}."nix" = {
-      type = "app";
-      program = "${pkgs.nix-schema}/bin/nix-schema";
-    };
-    homeConfigurations = {
-      rithvij = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        modules = [./home];
-
-        extraSpecialArgs = {inherit navi_config;};
+      overlays = import ./lib/overlays.nix { inherit inputs system; };
+    in
+    {
+      inherit (inputs.flake-schemas) schemas;
+      apps.${system}."nix" = {
+        type = "app";
+        program = "${pkgs.nix-schema}/bin/nix-schema";
       };
-    };
-    nixosConfigurations = {
-      iron = nixpkgs.lib.nixosSystem {
-        inherit system;
+      homeConfigurations = {
+        rithvij = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
 
-        modules = [
-          {
-            environment.systemPackages = [
-              blobdrop.packages.${system}.default
-            ];
-          }
-          #nixos-cosmic.nixosModules.default
+          modules = [ ./home ];
 
-          ./hosts/iron/configuration.nix
-        ];
+          extraSpecialArgs = {
+            inherit navi_config;
+          };
+        };
       };
+      nixosConfigurations = {
+        iron = nixpkgs.lib.nixosSystem {
+          inherit system;
 
-      defaultIso = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/iso.nix
-        ];
+          modules = [
+            { environment.systemPackages = [ blobdrop.packages.${system}.default ]; }
+            #nixos-cosmic.nixosModules.default
+
+            ./hosts/iron/configuration.nix
+          ];
+        };
+
+        defaultIso = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [ ./hosts/iso.nix ];
+        };
       };
+      formatter.${system} = pkgs.nixfmt-rfc-style;
     };
-    formatter.${system} = pkgs.nixfmt-rfc-style;
-  };
 }

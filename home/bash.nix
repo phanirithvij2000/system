@@ -1,10 +1,13 @@
-{config, ...}: {
+{ config, ... }:
+{
   # TODO blesh
   # https://github.com/tars0x9752/home/tree/main/modules/blesh
   programs.bash = {
     enable = true;
     enableCompletion = true;
-    sessionVariables = {HISTTIMEFORMAT = "%Y-%m-%d-%H%M%S ";};
+    sessionVariables = {
+      HISTTIMEFORMAT = "%Y-%m-%d-%H%M%S ";
+    };
     historyControl = [
       "erasedups"
       "ignorespace"

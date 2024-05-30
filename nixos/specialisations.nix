@@ -1,4 +1,5 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   # systemd-profiles idea I had can now be acheived
   specialisation = {
     tty.configuration = {

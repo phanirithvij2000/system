@@ -1,6 +1,6 @@
 _: {
   programs = {
-    lazygit.enable = true; #godsend
+    lazygit.enable = true; # godsend
     gh = {
       enable = true;
       gitCredentialHelper.enable = true;

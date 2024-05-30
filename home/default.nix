@@ -1,8 +1,5 @@
+{ config, pkgs, ... }:
 {
-  config,
-  pkgs,
-  ...
-}: {
   imports = [
     ./appimgs.nix
     ./bash.nix
@@ -47,7 +44,7 @@
     devbox
 
     # desktop apps
-    microsoft-edge #for its bing ai integration (slow af)
+    microsoft-edge # for its bing ai integration (slow af)
     tor-browser
     telegram-desktop
     qbittorrent
@@ -116,11 +113,11 @@
   programs.eza.enable = true;
   programs.fd.enable = true;
   programs.firefox.enable = true;
-  programs.fzf.enable = true; #godsend
+  programs.fzf.enable = true; # godsend
   programs.gallery-dl.enable = true;
   programs.jq.enable = true;
 
-  programs.lf.enable = true; #godsend
+  programs.lf.enable = true; # godsend
   home.file.".config/lf".source = ./config/lf;
 
   programs.micro.enable = true;
@@ -129,9 +126,7 @@
     config = {
       auto-window-resize = false;
     };
-    scripts = with pkgs; [
-      mpvScripts.uosc
-    ];
+    scripts = with pkgs; [ mpvScripts.uosc ];
   };
 
   programs.poetry.enable = true;
@@ -157,9 +152,7 @@
     settings = {
       misc = {
         assume_yes = true;
-        disable = [
-          "bun"
-        ];
+        disable = [ "bun" ];
         set_title = false;
         cleanup = true;
         run_in_tmux = true;
@@ -167,7 +160,10 @@
       };
       linux = {
         nix_arguments = "--flake /home/rithvij/Projects/system#iron";
-        home_manager_arguments = ["--flake" "/home/rithvij/Projects/system#rithvij"];
+        home_manager_arguments = [
+          "--flake"
+          "/home/rithvij/Projects/system#rithvij"
+        ];
       };
     };
   };

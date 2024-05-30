@@ -1,11 +1,6 @@
+{ navi_config, pkgs, ... }:
 {
-  navi_config,
-  pkgs,
-  ...
-}: {
-  home.packages = [
-    pkgs.buku
-  ];
+  home.packages = [ pkgs.buku ];
   programs.navi.enable = true;
   home.file.".local/share/navi/cheats" = {
     source = navi_config;

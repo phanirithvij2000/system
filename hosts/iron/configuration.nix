@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./hardware-configuration.nix
     ../../nixos
@@ -31,7 +32,7 @@
     };
   };
   boot.binfmt = {
-    emulatedSystems = ["aarch64-linux"];
+    emulatedSystems = [ "aarch64-linux" ];
     registrations.appimage = {
       wrapInterpreterInShell = false;
       interpreter = "${pkgs.appimage-run}/bin/appimage-run";
@@ -42,7 +43,9 @@
     };
   };
   # REISUB
-  boot.kernel.sysctl = {"kernel.sysrq" = 1;};
+  boot.kernel.sysctl = {
+    "kernel.sysrq" = 1;
+  };
 
   networking.hostName = "iron";
   networking.networkmanager.enable = true;
@@ -61,7 +64,7 @@
   services.keyd = {
     enable = true;
     keyboards.default = {
-      ids = ["*"];
+      ids = [ "*" ];
       settings = {
         main = {
           "j+k" = "esc";
@@ -107,20 +110,27 @@
 
   nix = {
     package = pkgs.nixFlakes;
-    settings = let
-      users = ["root" "rithvij" "tempwl" "hydra"];
-    in {
-      allowed-uris = "github: gitlab: git+ssh:// https://github.com/";
-      experimental-features = "nix-command flakes";
-      auto-optimise-store = true;
-      trusted-users = users;
-      allowed-users = users;
-      sandbox = "relaxed";
-      http-connections = 50;
-      log-lines = 50;
-      substituters = ["https://cosmic.cachix.org/"];
-      trusted-public-keys = ["cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="];
-    };
+    settings =
+      let
+        users = [
+          "root"
+          "rithvij"
+          "tempwl"
+          "hydra"
+        ];
+      in
+      {
+        allowed-uris = "github: gitlab: git+ssh:// https://github.com/";
+        experimental-features = "nix-command flakes";
+        auto-optimise-store = true;
+        trusted-users = users;
+        allowed-users = users;
+        sandbox = "relaxed";
+        http-connections = 50;
+        log-lines = 50;
+        substituters = [ "https://cosmic.cachix.org/" ];
+        trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+      };
     gc = {
       automatic = true;
       dates = "weekly";
@@ -135,7 +145,11 @@
     docker = {
       enable = true;
       daemon.settings = {
-        dns = ["192.168.1.1" "1.1.1.1" "9.9.9.9"];
+        dns = [
+          "192.168.1.1"
+          "1.1.1.1"
+          "9.9.9.9"
+        ];
       };
     };
   };
@@ -143,14 +157,25 @@
   users.users.tempwl = {
     isNormalUser = true;
     hashedPassword = "$y$j9T$CIlZr8283694QRRuk5LV61$2XLbPeB3WADV.jZLC7rXYGJ0GhZgGk7LQwyDXfI4dUD";
-    extraGroups = ["wheel" "video" "audio" "networkmanager"];
+    extraGroups = [
+      "wheel"
+      "video"
+      "audio"
+      "networkmanager"
+    ];
   };
 
   users.users.rithvij = {
     isNormalUser = true;
     # Hint: my clash of clans username
     hashedPassword = "$y$j9T$CIlZr8283694QRRuk5LV61$2XLbPeB3WADV.jZLC7rXYGJ0GhZgGk7LQwyDXfI4dUD";
-    extraGroups = ["wheel" "video" "audio" "networkmanager" "docker"];
+    extraGroups = [
+      "wheel"
+      "video"
+      "audio"
+      "networkmanager"
+      "docker"
+    ];
   };
 
   # List packages installed in system profile.
@@ -161,9 +186,9 @@
 
       gdu
       lf
-      tmux #programs tmux
+      tmux # programs tmux
 
-      fish #programs fish
+      fish # programs fish
       go
       git
       fastfetch
@@ -234,14 +259,17 @@
   networking.firewall = {
     enable = true;
     checkReversePath = "loose";
-    trustedInterfaces = ["tailscale0" "wlp3s0"];
-    allowedUDPPorts = [config.services.tailscale.port];
+    trustedInterfaces = [
+      "tailscale0"
+      "wlp3s0"
+    ];
+    allowedUDPPorts = [ config.services.tailscale.port ];
   };
 
   services.tailscale = {
     enable = true;
     useRoutingFeatures = "client";
-    extraUpFlags = ["--login-server http://armyofrats.in"];
+    extraUpFlags = [ "--login-server http://armyofrats.in" ];
   };
 
   # not supported with flakes

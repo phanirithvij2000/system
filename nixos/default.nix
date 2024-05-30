@@ -1,7 +1,5 @@
 _: {
-  imports = [
-    ./specialisations.nix
-  ];
+  imports = [ ./specialisations.nix ];
   # had to do sudo su hydra no password required
   # su - hydra asked for password
   # su; passwd hydra to set one, but sudo su works
@@ -9,7 +7,7 @@ _: {
     enable = false;
     hydraURL = "http://localhost:3000";
     notificationSender = "hydra@iron";
-    buildMachinesFiles = [];
+    buildMachinesFiles = [ ];
     useSubstitutes = true;
   };
 }
