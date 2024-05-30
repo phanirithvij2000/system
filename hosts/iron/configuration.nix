@@ -194,6 +194,7 @@
       nix-output-monitor
       nvd
       nh
+      nixfmt-rfc-style
 
       libsmbios
       dmidecode

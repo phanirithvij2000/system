@@ -2,9 +2,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    alejandra.url = "github:kamadorueda/alejandra";
-    alejandra.inputs.nixpkgs.follows = "nixpkgs";
-
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -36,7 +33,6 @@
   outputs = {
     self,
     nixpkgs,
-    alejandra,
     home-manager,
     blobdrop,
     navi_config,
@@ -74,7 +70,6 @@
         modules = [
           {
             environment.systemPackages = [
-              alejandra.packages.${system}.default
               blobdrop.packages.${system}.default
             ];
           }
@@ -91,6 +86,6 @@
         ];
       };
     };
-    formatter.${system} = alejandra.packages.${system}.default;
+    formatter.${system} = pkgs.nixfmt-rfc-style;
   };
 }
