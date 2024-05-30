@@ -106,11 +106,11 @@
     "navi_config": {
       "flake": false,
       "locked": {
-        "lastModified": 1717072592,
-        "narHash": "sha256-DcVmIx6ECld+lCHEemhHpht+6j9n0cUjYh0CJJ/DPvM=",
+        "lastModified": 1717073354,
+        "narHash": "sha256-dpPLe1G6WR4EmV8HaQYrZti75rSFQuhC9O7SyoGEYUw=",
         "owner": "phanirithvij",
         "repo": "navi",
-        "rev": "43f0197989e60e39219f8f77363a64624d3675e0",
+        "rev": "bf582916385bf95423b695b07e3928564ee3741e",
         "type": "github"
       },
       "original": {
