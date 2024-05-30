@@ -29,6 +29,7 @@
     yq
     viddy
     duf
+    dprint
 
     joplin # slow node tui app
 
