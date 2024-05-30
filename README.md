@@ -147,3 +147,9 @@ nix fmt
 ```
 nix flake update --commit-lock-file
 ```
+
+### prune
+
+```
+sudo nix-collect-garbage -d
+```
