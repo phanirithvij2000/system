@@ -28,6 +28,11 @@
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -38,6 +43,7 @@
       blobdrop,
       navi_config,
       nixos-cosmic,
+      nix-index-database,
       ...
     }@inputs:
     let
@@ -60,9 +66,12 @@
       homeConfigurations = {
         rithvij = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
+          modules = [
+            ./home
 
-          modules = [ ./home ];
-
+            nix-index-database.hmModules.nix-index
+            { programs.nix-index-database.comma.enable = true; }
+          ];
           extraSpecialArgs = {
             inherit navi_config;
           };
@@ -71,11 +80,9 @@
       nixosConfigurations = {
         iron = nixpkgs.lib.nixosSystem {
           inherit system;
-
           modules = [
             { environment.systemPackages = [ blobdrop.packages.${system}.default ]; }
             #nixos-cosmic.nixosModules.default
-
             ./hosts/iron/configuration.nix
           ];
         };

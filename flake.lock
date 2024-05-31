@@ -119,6 +119,26 @@
         "type": "github"
       }
     },
+    "nix-index-database": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1716772633,
+        "narHash": "sha256-Idcye44UW+EgjbjCoklf2IDF+XrehV6CVYvxR1omst4=",
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "rev": "ff80cb4a11bb87f3ce8459be6f16a25ac86eb2ac",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
     "nix-schema": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -219,6 +239,7 @@
         "flake-schemas": "flake-schemas",
         "home-manager": "home-manager",
         "navi_config": "navi_config",
+        "nix-index-database": "nix-index-database",
         "nix-schema": "nix-schema",
         "nixos-cosmic": "nixos-cosmic",
         "nixpkgs": "nixpkgs_2"
