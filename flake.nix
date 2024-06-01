@@ -1,7 +1,6 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-ly.url = "github:Vonfry/nixpkgs/init-ly-module";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -41,7 +40,6 @@
     {
       self,
       nixpkgs,
-      nixpkgs-ly,
       home-manager,
       blobdrop,
       navi_config,
@@ -88,9 +86,6 @@
             #nixos-cosmic.nixosModules.default
             ./hosts/iron/configuration.nix
           ];
-          specialArgs = {
-            inherit inputs;
-          };
         };
 
         defaultIso = nixpkgs.lib.nixosSystem {

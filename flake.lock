@@ -204,22 +204,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-ly": {
-      "locked": {
-        "lastModified": 1716809201,
-        "narHash": "sha256-rJrH/uzrCGYPn2MSdlxK2iL7Ck2n1twuVlZasKC/l5A=",
-        "owner": "Vonfry",
-        "repo": "nixpkgs",
-        "rev": "a51d8b737b0b7324e5a02e88b1d52c1931957fb3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Vonfry",
-        "ref": "init-ly-module",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-regression": {
       "locked": {
         "lastModified": 1643052045,
@@ -261,8 +245,7 @@
         "nix-index-database": "nix-index-database",
         "nix-schema": "nix-schema",
         "nixos-cosmic": "nixos-cosmic",
-        "nixpkgs": "nixpkgs",
-        "nixpkgs-ly": "nixpkgs-ly"
+        "nixpkgs": "nixpkgs"
       }
     }
   },

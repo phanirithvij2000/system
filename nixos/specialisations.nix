@@ -1,4 +1,4 @@
-{ lib, inputs, ... }:
+{ lib, ... }:
 {
   # systemd-profiles idea I had can now be acheived
   specialisation = {
@@ -16,7 +16,6 @@
     };
     ly = {
       configuration = {
-        imports = [ "${inputs.nixpkgs-ly}/nixos/modules/services/display-managers/ly.nix" ];
         services = {
           displayManager.ly.enable = true;
           displayManager.ly.settings = {
