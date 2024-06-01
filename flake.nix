@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-ly.url = "github:Vonfry/nixpkgs/init-ly-module";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -13,6 +14,7 @@
     ## nix client with schema support: see https://github.com/NixOS/nix/pull/8892
     nix-schema = {
       inputs.flake-schemas.follows = "flake-schemas";
+      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:DeterminateSystems/nix-src/flake-schemas";
     };
     # TODO jupyenv python, nix, go kernels
@@ -39,6 +41,7 @@
     {
       self,
       nixpkgs,
+      nixpkgs-ly,
       home-manager,
       blobdrop,
       navi_config,
@@ -85,6 +88,9 @@
             #nixos-cosmic.nixosModules.default
             ./hosts/iron/configuration.nix
           ];
+          specialArgs = {
+            inherit inputs;
+          };
         };
 
         defaultIso = nixpkgs.lib.nixosSystem {

@@ -146,7 +146,9 @@
           "flake-schemas"
         ],
         "libgit2": "libgit2",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
         "nixpkgs-regression": "nixpkgs-regression"
       },
       "locked": {
@@ -187,16 +189,32 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1709083642,
-        "narHash": "sha256-7kkJQd4rZ+vFrzWu8sTRtta5D1kBG0LSRYAfhtmMlSo=",
-        "owner": "NixOS",
+        "lastModified": 1716769173,
+        "narHash": "sha256-7EXDb5WBw+d004Agt+JHC/Oyh/KTUglOaQ4MNjBbo5w=",
+        "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "b550fe4b4776908ac2a861124307045f8e717c8e",
+        "rev": "9ca3f649614213b2aaf5f1e16ec06952fe4c2632",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "release-23.11",
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-ly": {
+      "locked": {
+        "lastModified": 1716809201,
+        "narHash": "sha256-rJrH/uzrCGYPn2MSdlxK2iL7Ck2n1twuVlZasKC/l5A=",
+        "owner": "Vonfry",
+        "repo": "nixpkgs",
+        "rev": "a51d8b737b0b7324e5a02e88b1d52c1931957fb3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Vonfry",
+        "ref": "init-ly-module",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -217,22 +235,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1716769173,
-        "narHash": "sha256-7EXDb5WBw+d004Agt+JHC/Oyh/KTUglOaQ4MNjBbo5w=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "9ca3f649614213b2aaf5f1e16ec06952fe4c2632",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "blobdrop": "blobdrop",
@@ -242,7 +244,8 @@
         "nix-index-database": "nix-index-database",
         "nix-schema": "nix-schema",
         "nixos-cosmic": "nixos-cosmic",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-ly": "nixpkgs-ly"
       }
     }
   },
