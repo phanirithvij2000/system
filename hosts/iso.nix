@@ -5,6 +5,7 @@
   ...
 }:
 {
+  isoImage.squashfsCompression = "gzip -Xcompression-level 1";
   imports = [
     "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
     "${modulesPath}/installer/cd-dvd/channel.nix"
