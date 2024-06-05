@@ -25,7 +25,7 @@
           displayManager.sddm.enable = lib.mkForce false;
           xserver.enable = true;
           xserver.displayManager.lightdm.enable = lib.mkForce false;
-          desktopManager.plasma6.enable = lib.mkForce false;
+          desktopManager.plasma6.enable = true;
           flatpak.enable = lib.mkForce false;
         };
       };
