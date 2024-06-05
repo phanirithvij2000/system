@@ -23,6 +23,7 @@
 
   users.users = {
     nixos.extraGroups = [ "networkmanager" ];
+    nixos.initialPassword = "nixos";
   };
 
   # TODO home-manager
@@ -31,13 +32,15 @@
   # document all of it
   environment.systemPackages = with pkgs; [
     disko
-    neovim
     parted
     lf
     git
     gh
     lazygit
     bashmount
-    tmux
   ];
+
+  services.openssh.enable = true;
+  programs.tmux.enable = true;
+  programs.neovim.enable = true;
 }
