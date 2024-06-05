@@ -23,7 +23,7 @@
 
   users.users = {
     nixos.extraGroups = [ "networkmanager" ];
-    nixos.initialPassword = "nixos";
+    nixos.initialHashedPassword = lib.mkForce "nixos";
   };
 
   # TODO home-manager
