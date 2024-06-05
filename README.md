@@ -153,3 +153,10 @@ nix flake update --commit-lock-file
 ```
 sudo nix-collect-garbage -d
 ```
+
+### build-iso
+
+```
+nom build .#nixosConfigurations.defaultIso.config.system.build.isoImage
+```
+
