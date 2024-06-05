@@ -27,6 +27,7 @@
 
   # TODO home-manager
   # navi cheats with nix bookmarks
+  # tmux config
   # document all of it
   environment.systemPackages = with pkgs; [
     disko
@@ -37,5 +38,6 @@
     gh
     lazygit
     bashmount
+    tmux
   ];
 }
