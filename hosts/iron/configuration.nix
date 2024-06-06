@@ -255,12 +255,10 @@
 
   networking.firewall = {
     enable = true;
-    checkReversePath = "loose";
     trustedInterfaces = [
       "tailscale0"
       "wlp3s0"
     ];
-    allowedUDPPorts = [ config.services.tailscale.port ];
   };
   networking.nameservers = [
     "192.168.1.1"
@@ -272,6 +270,7 @@
   services.tailscale = {
     enable = true;
     useRoutingFeatures = "client";
+    openFirewall = true;
     extraUpFlags = [ "--login-server http://armyofrats.in" ];
   };
 
