@@ -1,5 +1,8 @@
 { pkgs, config, ... }:
 {
+  # TODO logrotate bash_history
+  # TODO borgmatic backup to gdrive
+  # TODO private github repo
   home.packages = [ pkgs.logrotate ];
   # TODO blesh
   # https://github.com/tars0x9752/home/tree/main/modules/blesh

@@ -70,7 +70,7 @@
         rithvij = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            ./home
+            ./home/rithvij
 
             nix-index-database.hmModules.nix-index
             { programs.nix-index-database.comma.enable = true; }
@@ -88,8 +88,11 @@
             #nixos-cosmic.nixosModules.default
             ./hosts/iron/configuration.nix
             home-manager.nixosModules.home-manager
-            { home-manager.users.rithvij = import ./home; }
+            { home-manager.users.rithvij = import ./home/rithvij; }
           ];
+          specialArgs = {
+            inherit navi_config;
+          };
         };
 
         defaultIso = nixpkgs.lib.nixosSystem {
