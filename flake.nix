@@ -87,6 +87,8 @@
             { environment.systemPackages = [ blobdrop.packages.${system}.default ]; }
             #nixos-cosmic.nixosModules.default
             ./hosts/iron/configuration.nix
+            home-manager.nixosModules.home-manager
+            { home-manager.users.rithvij = import ./home; }
           ];
         };
 
