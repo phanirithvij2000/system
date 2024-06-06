@@ -159,3 +159,15 @@ sudo nix-collect-garbage -d
 ```
 nom build .#nixosConfigurations.defaultIso.config.system.build.isoImage
 ```
+
+### build-hm
+
+```
+nom build .#homeConfigurations.rithvij.activationPackage
+```
+
+### nix-on-droid
+
+```
+nom build .#nixOnDroidConfigurations.default.activationPackage --impure
+```
