@@ -63,7 +63,7 @@ main system configuration including dotfiles, will recreate repo with private do
   - yubikey try
 - [ ] tailscale on local instead of vps
   - also vps configuration in nix/dockerfiles separate repo?
-  - rustdesk, syncplay, tailscale
+  - rustdesk-server, syncplay, tailscale, headscale
 - [ ] All these useful nix commands in navi/tmuxp/dmux/espanso/jupntbks/mprocs
   - Under home-manager bookmarks
   - Also nh tool is useful
