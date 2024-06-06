@@ -269,6 +269,8 @@
     extraUpFlags = [ "--login-server http://armyofrats.in" ];
   };
 
+  # TODO headscale
+
   # not supported with flakes
   # system.copySystemConfiguration = true;
 

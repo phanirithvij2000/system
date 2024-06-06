@@ -18,7 +18,9 @@
     };
     # TODO jupyenv python, nix, go kernels
 
-    # TODO split up flakes
+    # TODO split up flakes, seems like inputs cannot be separated
+    # Flakes are bad for big repos (lazy-trees)
+    # TODO move to npins, also keep flakes config in a diff branch
 
     navi_config = {
       url = "github:phanirithvij/navi";
