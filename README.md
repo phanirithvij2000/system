@@ -159,4 +159,3 @@ sudo nix-collect-garbage -d
 ```
 nom build .#nixosConfigurations.defaultIso.config.system.build.isoImage
 ```
-
