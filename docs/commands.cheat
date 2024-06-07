@@ -31,8 +31,4 @@ nix run nixpkgs#nix-du | nix shell nixpkgs#graphviz -c dot -Tsvg > du.svg
 
 # see big
 nix run nixpkgs#nix-du -- -s=100MB | nix shell nixpkgs#graphviz -c dot -Tsvg > du.svg
-
-# open in browser
-opop du.svg
-
-#
+xdg-open du.svg
