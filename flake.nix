@@ -51,6 +51,7 @@
     }@inputs:
     let
       username = "rithvij";
+      hostname = "iron";
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit overlays system;
@@ -84,7 +85,7 @@
         };
       };
       nixosConfigurations = {
-        iron = nixpkgs.lib.nixosSystem rec {
+        ${hostname} = nixpkgs.lib.nixosSystem rec {
           inherit system;
           modules = [
             {
@@ -94,7 +95,7 @@
               ];
             }
             #nixos-cosmic.nixosModules.default
-            ./hosts/iron/configuration.nix
+            ./hosts/${hostname}/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
