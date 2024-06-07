@@ -10,7 +10,7 @@
 
     # https://github.com/gvolpe/nix-config/blob/d983b5e6d8c4d57152ef31fa7141d3aad465123a/flake.nix#L17
     flake-schemas.url = "github:gvolpe/flake-schemas";
-    ## nix client with schema support: see https://github.com/NixOS/nix/pull/8892
+    # nix client with schema support: see https://github.com/NixOS/nix/pull/8892
     nix-schema = {
       inputs.flake-schemas.follows = "flake-schemas";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -50,11 +50,13 @@
       ...
     }@inputs:
     let
+      username = "rithvij";
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit overlays system;
         config = {
           allowUnfree = true;
+	  # TODO allowlist of unfree pkgs, for home-manager too
           allowUnfreePredicate = _: true;
         };
       };
@@ -67,11 +69,9 @@
         program = "${pkgs.nix-schema}/bin/nix-schema";
       };
       homeConfigurations = {
-        rithvij = home-manager.lib.homeManagerConfiguration {
+        ${username} = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [
-            ./home/rithvij
-          ];
+          modules = [ ./home/${username} ];
           extraSpecialArgs = {
             inherit navi_config;
           };
@@ -93,7 +93,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.rithvij = import ./home/rithvij;
+              home-manager.users.${username} = import ./home/${username};
               home-manager.extraSpecialArgs = specialArgs;
             }
           ];
