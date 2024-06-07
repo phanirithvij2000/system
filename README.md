@@ -83,12 +83,31 @@ main system configuration including dotfiles, will recreate repo with private do
 - [ ] Docker containers registry mirrors
 - [ ] Experimental nix overlay store
   - Combine 2 nix stores
-- [ ] Styx
-  - binary cache substitutor something novel
 - [ ] Stylix
   - pywal like thing
 - [ ] NixNG
   - For creating Containers
+- [ ] Styx
+  - binary cache substitutor something novel
+- [ ] Attic
+- [ ] Harmonia
+- [ ] Nix-serve
+- [ ] gha backed magic cache
+    - https://github.com/alexellis/actions-batch
+    - https://github.com/fawazahmed0/action-debug
+    - https://github.com/phanirithvij/debug-action
+    - [ ] Tailscale
+        - Headscale auto approve (device)
+- [ ] system-manager
+    - https://github.com/numtide/system-manager
+    - [ ] vps config
+    - [ ] gha config
+- [ ] nix-on-droid
+    - two identical?
+    - [ ] remote build on linux
+    - [ ] distributed builds on both devices
+    - proot is unusably slow
+- [ ] Ansible playbooks??
 
 ## NOTES
 
