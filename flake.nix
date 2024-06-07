@@ -56,7 +56,7 @@
         inherit overlays system;
         config = {
           allowUnfree = true;
-	  # TODO allowlist of unfree pkgs, for home-manager too
+          # TODO allowlist of unfree pkgs, for home-manager too
           allowUnfreePredicate = _: true;
         };
       };
@@ -71,7 +71,12 @@
       homeConfigurations = {
         ${username} = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./home/${username} ];
+          modules = [
+            ./home/${username}
+
+            nix-index-database.hmModules.nix-index
+            { programs.nix-index-database.comma.enable = true; }
+          ];
           extraSpecialArgs = {
             inherit navi_config;
           };
