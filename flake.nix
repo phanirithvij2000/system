@@ -71,9 +71,6 @@
           inherit pkgs;
           modules = [
             ./home/rithvij
-
-            nix-index-database.hmModules.nix-index
-            { programs.nix-index-database.comma.enable = true; }
           ];
           extraSpecialArgs = {
             inherit navi_config;
