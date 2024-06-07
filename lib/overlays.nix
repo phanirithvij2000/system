@@ -1,5 +1,4 @@
 { inputs, system }:
-with inputs;
 let
   schemaOverlay = f: p: {
     nix-schema = inputs.nix-schema.packages.${system}.nix.overrideAttrs (old: {

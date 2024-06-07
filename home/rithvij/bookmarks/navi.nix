@@ -1,13 +1,39 @@
 { navi_config, pkgs, ... }:
 let
+  naviOverlay = f: p: {
+    navi = p.navi.overrideAttrs (old: rec {
+      pname = "navi";
+      version = "master";
+      src = p.fetchFromGitHub {
+        owner = "denisidoro";
+        repo = "navi";
+        rev = "52e90ad8f993c9db458915b681a3ddf165b8002b";
+        hash = "sha256-8e2sbKc6eYDerf/q0JwS6GPXkqDXLerbPqWK6oemSqM=";
+      };
+      cargoDeps = old.cargoDeps.overrideAttrs (
+        p.lib.const {
+          name = "${pname}-vendor.tar.gz";
+          inherit src;
+          outputHash = "sha256-vNfcSHNP0KNM884DMtraYohLOvumSZnEtemJ+bJSQ5o=";
+        }
+      );
+    });
+  };
   navi = pkgs.navi;
 in
 {
+  nixpkgs.overlays = [ naviOverlay ];
+  programs.tealdeer.enable = true;
   programs.navi = {
     enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
     enableFishIntegration = true;
+    settings = {
+      client = {
+        tealdeer = true;
+      };
+    };
   };
   programs.bash.initExtra = ''
     if [[ :$SHELLOPTS: =~ :(vi|emacs): ]]; then
