@@ -123,6 +123,12 @@ main system configuration including dotfiles, will recreate repo with private do
 
 requires: flkupdcmt, fmt, home-switch, os-switch
 
+### os-boot
+
+```
+nh os boot .
+```
+
 ### os-switch
 
 ```
@@ -132,7 +138,7 @@ nh os switch .
 ### home-switch
 
 ```
-nh home switch . -b bak
+nh home switch . -b bak -c rithvij@iron
 ```
 
 ### flkupdcmt
