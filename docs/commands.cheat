@@ -1,0 +1,38 @@
+% nixos
+
+# switch
+nh os switch . -H iron
+nh home switch . -b bak -c rithvij
+
+# os switch
+nh os switch . -H iron
+sudo nixos-rebuild switch --fast --flake .#iron
+
+# build
+nh os build . -H iron
+nh home build . -c rithvij
+
+% home-manager
+
+# home switch
+nh home switch . -b bak -c rithvij
+home-manager switch --flake .#rithvij
+
+# home build
+nix build .#homeConfigurations.rithvij.activationPackage
+nom build .#homeConfigurations.rithvij.activationPackage
+home-manager build --flake .#rithvij
+nh home build . -c rithvij
+
+% nix-du
+
+# see full
+nix run nixpkgs#nix-du | nix shell nixpkgs#graphviz -c dot -Tsvg > du.svg
+
+# see big
+nix run nixpkgs#nix-du -- -s=100MB | nix shell nixpkgs#graphviz -c dot -Tsvg > du.svg
+
+# open in browser
+opop du.svg
+
+#
