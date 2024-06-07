@@ -76,6 +76,7 @@
 
             nix-index-database.hmModules.nix-index
             { programs.nix-index-database.comma.enable = true; }
+            { programs.bottom.enable = nixpkgs.lib.mkForce false; }
           ];
           extraSpecialArgs = {
             inherit navi_config;

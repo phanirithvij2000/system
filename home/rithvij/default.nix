@@ -102,6 +102,7 @@
     # ntfy-sh
   ];
 
+  programs.bottom.enable = true;
   programs.alacritty.enable = true;
   programs.aria2.enable = true;
   programs.bashmount.enable = true;
