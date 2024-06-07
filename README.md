@@ -135,23 +135,10 @@ nh os switch .
 nh home switch . -b bak
 ```
 
-### fmt
-
-```
-dprint fmt
-nix fmt
-```
-
 ### flkupdcmt
 
 ```
 nix flake update --commit-lock-file
-```
-
-### prune
-
-```
-sudo nix-collect-garbage -d
 ```
 
 ### build-iso
@@ -164,10 +151,31 @@ nom build .#nixosConfigurations.defaultIso.config.system.build.isoImage
 
 ```
 nom build .#homeConfigurations.rithvij.activationPackage
+nh home build .
+```
+
+### build-os
+
+```
+nom build .#nixosConfigurations.iron.config.system.build.toplevel
+nh os build .
 ```
 
 ### nix-on-droid
 
 ```
 nom build .#nixOnDroidConfigurations.default.activationPackage --impure
+```
+
+### prune
+
+```
+sudo nix-collect-garbage -d
+```
+
+### fmt
+
+```
+dprint fmt
+nix fmt
 ```
