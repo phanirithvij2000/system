@@ -77,7 +77,7 @@
 
             nix-index-database.hmModules.nix-index
             { programs.nix-index-database.comma.enable = true; }
-            { programs.bottom.enable = false; }
+            { programs.bottom.enable = nixpkgs.lib.mkForce false; }
           ];
           extraSpecialArgs = {
             inherit navi_config;
@@ -99,7 +99,8 @@
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
+              # https://nix-community.github.io/home-manager/index.xhtml#sec-install-nixos-module
+              home-manager.useUserPackages = false; # can be false if want ~/.nix-profile
               home-manager.users.${username} = import ./home/${username};
               home-manager.extraSpecialArgs = specialArgs;
             }
