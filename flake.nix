@@ -84,7 +84,12 @@
         iron = nixpkgs.lib.nixosSystem rec {
           inherit system;
           modules = [
-            { environment.systemPackages = [ blobdrop.packages.${system}.default ]; }
+            {
+              environment.systemPackages = [
+                blobdrop.packages.${system}.default
+                home-manager.packages.${system}.default
+              ];
+            }
             #nixos-cosmic.nixosModules.default
             ./hosts/iron/configuration.nix
             home-manager.nixosModules.home-manager
