@@ -157,8 +157,9 @@ nh home build .
 ### build-os
 
 ```
+nixos-rebuild build --flake .#iron
 nom build .#nixosConfigurations.iron.config.system.build.toplevel
-nh os build .
+nh os build . -H iron
 ```
 
 ### nix-on-droid
