@@ -147,20 +147,20 @@ nh home switch . -b bak -c rithvij@iron
 nix flake update --commit-lock-file
 ```
 
-### build-iso
+### iso-build
 
 ```
 nom build .#nixosConfigurations.defaultIso.config.system.build.isoImage
 ```
 
-### build-hm
+### home-build
 
 ```
 nom build .#homeConfigurations.rithvij.activationPackage
 nh home build .
 ```
 
-### build-os
+### os-build
 
 ```
 nixos-rebuild build --flake .#iron
