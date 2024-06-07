@@ -3,6 +3,7 @@
   imports = [
     ./appimgs.nix
     ./bash.nix
+    ./fish.nix
     ./bookmarks.nix
 
     ./git.nix
