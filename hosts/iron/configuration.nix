@@ -4,6 +4,14 @@
   pkgs,
   ...
 }:
+let
+  nameservers = [
+    "192.168.1.1"
+    "1.1.1.1"
+    "100.100.100.100"
+    "8.8.8.8"
+  ];
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -112,20 +120,26 @@
           "root"
           "rithvij"
           "tempwl"
-          "hydra"
+          "hydra" # TODO maybe hydra needs @wheel
         ];
       in
       {
         allowed-uris = "github: gitlab: git+ssh:// https://github.com/";
         experimental-features = "nix-command flakes";
         auto-optimise-store = true;
-        trusted-users = users;
+        trusted-users = [ "root" "@wheel" ];
         allowed-users = users;
         sandbox = "relaxed";
         http-connections = 50;
         log-lines = 50;
-        substituters = [ "https://cosmic.cachix.org/" ];
-        trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+        substituters = [
+          "https://cosmic.cachix.org/"
+          "https://nix-community.cachix.org"
+        ];
+        trusted-public-keys = [
+          "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
+          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        ];
       };
     gc = {
       automatic = true;
@@ -141,11 +155,7 @@
     docker = {
       enable = true;
       daemon.settings = {
-        dns = [
-          "192.168.1.1"
-          "1.1.1.1"
-          "9.9.9.9"
-        ];
+        dns = nameservers;
       };
     };
   };
@@ -260,12 +270,7 @@
       "wlp3s0"
     ];
   };
-  networking.nameservers = [
-    "192.168.1.1"
-    "1.1.1.1"
-    "8.8.8.8"
-    "100.100.100.100"
-  ];
+  networking.nameservers = nameservers;
 
   services.tailscale = {
     enable = true;
