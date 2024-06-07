@@ -24,7 +24,7 @@
     "kvm-intel"
     "v4l2loopback"
   ];
-  boot.extraModulePackages = [ ];
+  boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixroot";
@@ -34,9 +34,13 @@
   fileSystems."/boot/efi" = {
     device = "/dev/disk/by-label/Boot";
     fsType = "vfat";
+    options = [
+      "fmask=0022"
+      "dmask=0022"
+    ];
   };
 
-  swapDevices = [ ];
+  swapDevices = [ { device = "/dev/disk/by-label/Swap"; } ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
