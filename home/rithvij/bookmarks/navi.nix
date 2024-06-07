@@ -15,7 +15,7 @@ in
         | sed 's/_navi_widget/_navi_widget_currdir/g' \
         | sed 's/--print/--print --path "$PWD"/g' \
         | sed 's/C-g/C-j/g' \
-        | > /tmp/navi_eval.sh
+        > /tmp/navi_eval.sh
       source /tmp/navi_eval.sh
     fi
   '';
@@ -25,7 +25,7 @@ in
         | sed 's/_navi_widget/_navi_widget_currdir/g' \
         | sed 's/--print/--print --path "$PWD"/g' \
         | sed 's/\^g/\^j/g'
-        | > /tmp/navi_eval.zsh
+        > /tmp/navi_eval.zsh
       source /tmp/navi_eval.zsh
     fi
   '';
