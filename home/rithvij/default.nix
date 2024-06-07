@@ -4,7 +4,7 @@
     ./appimgs.nix
     ./bash.nix
     ./fish.nix
-    ./bookmarks.nix
+    ./bookmarks
 
     ./git.nix
     ./games
