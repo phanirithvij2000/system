@@ -162,10 +162,10 @@
         skip_notify = true;
       };
       linux = {
-        nix_arguments = "--flake /home/rithvij/Projects/system#iron";
+        nix_arguments = "--flake $SYSTEM_DIR#iron";
         home_manager_arguments = [
           "--flake"
-          "/home/rithvij/Projects/system#rithvij"
+          "$SYSTEM_DIR#rithvij"
         ];
       };
     };

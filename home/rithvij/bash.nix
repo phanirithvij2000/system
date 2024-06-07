@@ -32,6 +32,8 @@
       shopt -s expand_aliases
       shopt -s histappend
       export PATH="$PATH:$HOME/.local/bin:$HOME/go/bin"
+      export OWN_DIR="$HOME/Projects/\!Own"
+      export SYSTEM_DIR="$HOME/Projects/system"
 
       fzfalias() {
         fzf --height 60% --layout=reverse \
