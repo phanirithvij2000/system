@@ -119,9 +119,19 @@ main system configuration including dotfiles, will recreate repo with private do
 
 ## Tasks
 
-### all
+### preswitch
 
-requires: flkupdcmt, fmt, home-switch, os-switch
+requires: flkupdcmt, fmt
+RunDeps: async
+
+### switch
+
+requires: preswitch, switchreal
+
+### switchreal
+
+requires: home-switch, os-switch
+RunDeps: async
 
 ### os-boot
 
@@ -138,7 +148,7 @@ nh os switch .
 ### home-switch
 
 ```
-nh home switch . -b bak -c rithvij@iron
+nh home switch . -b bak -c rithvij
 ```
 
 ### flkupdcmt
