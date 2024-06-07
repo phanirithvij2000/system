@@ -81,14 +81,19 @@
         };
       };
       nixosConfigurations = {
-        iron = nixpkgs.lib.nixosSystem {
+        iron = nixpkgs.lib.nixosSystem rec {
           inherit system;
           modules = [
             { environment.systemPackages = [ blobdrop.packages.${system}.default ]; }
             #nixos-cosmic.nixosModules.default
             ./hosts/iron/configuration.nix
             home-manager.nixosModules.home-manager
-            { home-manager.users.rithvij = import ./home/rithvij; }
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.rithvij = import ./home/rithvij;
+              home-manager.extraSpecialArgs = specialArgs;
+            }
           ];
           specialArgs = {
             inherit navi_config;
