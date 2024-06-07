@@ -2,9 +2,10 @@
 {
   imports = [
     ./appimgs.nix
+    ./android.nix
     ./bash.nix
-    ./fish.nix
     ./bookmarks
+    ./fish.nix
 
     ./git.nix
     ./games
@@ -24,9 +25,7 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    android-file-transfer
     rclone
-    scrcpy
     yq
     viddy
     duf

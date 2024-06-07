@@ -89,6 +89,7 @@ map e $$EDITOR "$f"
 map <enter> $bash -c "nvim \"$f\""
 map <c-q> quit
 map <c-g> $navi
+map <c-j> $navi -p .
 
 cmd newfold ${{
     set -f
