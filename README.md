@@ -4,6 +4,41 @@ main system configuration including dotfiles, will recreate repo with private do
 
 ## TODO
 
+- [ ] home-manager for different hosts
+  - shared /nix partition r/w?
+    - garbage collection might get fked
+      - gha cache to the rescue?
+    - use ext drive as backup nix store and nix-serve it when detected?
+      and use as another trusted substitutor?
+      - and never gc it?
+- [ ] shell.nix
+  - xc, dprint, navi, fzf, lazygit
+  - move away from xc? taskfile, justfile, makefile, magefile, navi
+- [ ] gha steps
+  - get more space (see someone's gha already doing this)
+  - disable hardware-configuration.nix before building?
+  - caching limit needs to be taken into consideration
+    - disable qbittorrent, firefox, large packages
+    - minecraft (prismlauncher, steam-run)
+    - linux kernel takes some time
+    - also non-free pkgs
+  - or have a full build action which does not use cache
+    - or in a different repo? but can 10GB hold it
+  - whacky gha runner home-manager profile
+  - [ ] repo/cache per host?
+- [ ] minimal profile
+  - remove alsa, 32bit
+  - documentation enable false
+  - man pages
+- [ ] mouse heavy wf
+  - awesomewm
+  - dunst
+- [ ] buku
+  - webserver as nixos module?
+- [ ] espanso
+  - buku
+  - authpass
+  - sops secrets
 - [x] formatter is nixfmt-rfc-style
   - dprint for other things
 - [ ] installer iso two variations
