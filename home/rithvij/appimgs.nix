@@ -13,7 +13,7 @@ _: {
   home.file."Desktop/subtitlecomposer-git-latest-x86_64.AppImage" = {
     source = builtins.fetchurl {
       url = "https://downloadcontent.opensuse.org/repositories/home:/maxrd2/AppImage/subtitlecomposer-git-latest-x86_64.AppImage";
-      sha256 = "0z4sldh4jv0niaz1axwqii2l3cy7d8y4sfnrhl695xdsbrm7fr5p";
+      sha256 = "08lcwp0j5n98vlr63lr6cyynad19kp173458dc4154kljwfp3hww";
     };
     executable = true;
   };
