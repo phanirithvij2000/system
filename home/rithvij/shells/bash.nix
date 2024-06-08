@@ -69,7 +69,7 @@
       lad = "lazydocker";
       lar = "lazygit_fzf";
       cd = "z";
-      # gb = "gitbatch";
+      gb = "gitbatch";
       b = "btop";
       bl = "bluetuith";
       c = "clear";

@@ -3,14 +3,14 @@
   imports = [
     ./appimgs.nix
     ./android.nix
-    ./bash.nix
     ./bookmarks
-    ./fish.nix
+    ./editors.nix
 
     ./git.nix
     ./games
 
     ./rss.nix
+    ./shells
     ./tmux.nix
   ];
 
@@ -36,7 +36,6 @@
     ctpv
     #xdragon
 
-    hub
     glow # markdown previewer in terminal
 
     # TODO https://github.com/badele/nix-homelab/tree/main?tab=readme-ov-file#tui-floating-panel-configuration

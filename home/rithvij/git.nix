@@ -1,4 +1,9 @@
-_: {
+{ pkgs, ... }:
+{
+  home.packages = [
+    pkgs.gitbatch
+    pkgs.hub
+  ];
   programs = {
     lazygit.enable = true; # godsend
     gh = {
