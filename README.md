@@ -22,8 +22,11 @@ main system configuration including dotfiles, will recreate repo with private do
     - minecraft (prismlauncher, steam-run)
     - linux kernel takes some time
     - also non-free pkgs
+    - or simply anything not caches by cache.nixos.org?
+    - [ ] gui profile? disable when running gha?
   - or have a full build action which does not use cache
     - or in a different repo? but can 10GB hold it
+    - iron hm seems to be 7GB
   - whacky gha runner home-manager profile
   - [ ] repo/cache per host?
 - [ ] minimal profile
@@ -35,10 +38,13 @@ main system configuration including dotfiles, will recreate repo with private do
   - dunst
 - [ ] buku
   - webserver as nixos module?
-- [ ] espanso
-  - buku
-  - authpass
-  - sops secrets
+- [ ] espanso (outside shell or when navi is not enough)
+  - buku so I can not have a flocuss folder incident
+  - navi so I can paste navi commands online?
+  - authpass so I can paste passwds online
+  - gopass + lesspass (gopass-hibp?)
+  - whacky: gopass totp, gopass reads .kdbx?
+  - sops secrets, age? o.O
 - [x] formatter is nixfmt-rfc-style
   - dprint for other things
 - [ ] installer iso two variations
