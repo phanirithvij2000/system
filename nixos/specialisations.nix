@@ -10,6 +10,7 @@
           displayManager.sddm.enable = lib.mkForce false;
           desktopManager.plasma6.enable = lib.mkForce false;
           flatpak.enable = lib.mkForce false;
+	  # TODO disable graphical profile
         };
       };
       inheritParentConfig = true;
