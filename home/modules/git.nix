@@ -15,7 +15,7 @@
           };
           paging = {
             colorArg = "always";
-            pager = "${pkgs.delta} --dark --paging=never";
+            pager = "${pkgs.delta}/bin/delta --dark --paging=never";
           };
         };
         gui = {
