@@ -15,7 +15,7 @@ main system configuration including dotfiles, will recreate repo with private do
   - xc, dprint, navi, fzf, lazygit
   - move away from xc? taskfile, justfile, makefile, magefile, navi
 - [ ] gha steps
-  - get more space (see someone's gha already doing this)
+  - get more space (see @workflow's gha already doing this)
   - disable hardware-configuration.nix before building?
   - caching limit needs to be taken into consideration
     - disable qbittorrent, firefox, large packages
