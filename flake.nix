@@ -52,8 +52,8 @@
     let
       user = "rithvij";
       uzer = "rithviz";
-      hostname = "iron";
-      hoztname = "rithviz-inspiron7570";
+      host = "iron";
+      hozt = "rithviz-inspiron7570";
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit overlays system;
@@ -65,7 +65,7 @@
       };
       overlays = import ./lib/overlays.nix { inherit inputs system; };
       homeConfig =
-        username:
+        { username, hostname }:
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
@@ -77,6 +77,8 @@
           ];
           extraSpecialArgs = {
             inherit navi_config;
+            inherit username;
+            inherit hostname;
           };
         };
     in
@@ -87,11 +89,17 @@
         program = "${pkgs.nix-schema}/bin/nix-schema";
       };
       homeConfigurations = {
-        ${user} = homeConfig user;
-        ${uzer} = homeConfig uzer;
+        "${user}@${host}" = homeConfig {
+          username = user;
+          hostname = host;
+        };
+        "${uzer}@${hozt}" = homeConfig {
+          username = uzer;
+          hostname = hozt;
+        };
       };
       nixosConfigurations = {
-        ${hostname} = nixpkgs.lib.nixosSystem rec {
+        ${host} = nixpkgs.lib.nixosSystem rec {
           inherit system;
           modules = [
             {
@@ -101,7 +109,7 @@
               ];
             }
             #nixos-cosmic.nixosModules.default
-            ./hosts/${hostname}/configuration.nix
+            ./hosts/${host}/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager = {
@@ -116,6 +124,8 @@
           ];
           specialArgs = {
             inherit navi_config;
+            username = user;
+            hostname = host;
           };
         };
 

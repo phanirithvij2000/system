@@ -1,4 +1,14 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  username,
+  hostname,
+  ...
+}:
+let
+  homeDir = "/home/${username}";
+  configDir = "${homeDir}/Projects/system"; # TODO impure??
+in
 {
   imports = [
     ../modules/appimgs.nix
@@ -14,8 +24,8 @@
     ../modules/tmux.nix
   ];
 
-  home.username = "rithvij";
-  home.homeDirectory = "/home/rithvij";
+  home.username = username;
+  home.homeDirectory = homeDir;
 
   # set cursor size and dpi for 4k monitor
   xresources.properties = {
@@ -160,10 +170,10 @@
         skip_notify = true;
       };
       linux = {
-        nix_arguments = "--flake /home/rithvij/Projects/system#iron";
+        nix_arguments = "--flake ${configDir}#${hostname}";
         home_manager_arguments = [
           "--flake"
-          "/home/rithvij/Projects/system#rithvij"
+          "${configDir}#${username}"
         ];
       };
     };
