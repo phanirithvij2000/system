@@ -51,15 +51,15 @@ jobs:
       - run: nix build .#nixosConfigurations.iron.config.system.build.toplevel
       - run: nix build .#homeConfigurations.rithvij.activationPackage
       - run: nix build .#homeConfigurations.rithviz.activationPackage
-      - name: keypair for nix-serve and run
-        shell: bash
-        run: |
-          source .github/scripts/nix-serve.sh >/dev/null 2>&1
-      - run: nix profile install nixpkgs#cloudflared
-      # optionally configure a fixed cloudflare tunnel endpoint (requires login)
-      # - name: configure cloudflare tunnel endpoint
-      - name: expose nix-serve server
-        run: |
-          cloudflared tunnel --url http://localhost:5000 > cloudflared.log 2>&1 &
-      - run: .github/scripts/loop.sh
-        shell: bash
+      #- name: keypair for nix-serve and run
+      #  shell: bash
+      #  run: |
+      #    source .github/scripts/nix-serve.sh >/dev/null 2>&1
+      #- run: nix profile install nixpkgs#cloudflared
+      ## optionally configure a fixed cloudflare tunnel endpoint (requires login)
+      ## - name: configure cloudflare tunnel endpoint
+      #- name: expose nix-serve server
+      #  run: |
+      #    cloudflared tunnel --url http://localhost:5000 > cloudflared.log 2>&1 &
+      #- run: .github/scripts/loop.sh
+      #  shell: bash
