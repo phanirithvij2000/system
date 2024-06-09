@@ -50,8 +50,8 @@ jobs:
           key: ${{ runner.os }}
       #- run: nix build .#nixosConfigurations.iron.config.system.build.toplevel
       - run: nix run github:viperML/nh --verbose -- os build -H iron -s tty . --no-nom -v
-      - run: nix build .#homeConfigurations.rithvij.activationPackage
-      - run: nix build .#homeConfigurations.rithviz.activationPackage
+      - run: nix build .#homeConfigurations."rithvij@iron".activationPackage
+      - run: nix build .#homeConfigurations."rithviz@rithviz-inspiron7570".activationPackage
       #- name: keypair for nix-serve and run
       #  shell: bash
       #  run: |
