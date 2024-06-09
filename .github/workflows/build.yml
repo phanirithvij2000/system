@@ -18,7 +18,7 @@ jobs:
       - name: keypair for nix-serve
         shell: bash
         run: |
-          source .github/scripts/run.sh > /dev/null 2>&1
+          source .github/scripts/run.sh
       - name: expose nix-serve server
         run: |
           cloudflared tunnel --url http://localhost:5000 > cloudflared.log 2>&1 &
