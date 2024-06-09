@@ -50,8 +50,10 @@
       ...
     }@inputs:
     let
-      username = "rithvij";
+      user = "rithvij";
+      uzer = "rithviz";
       hostname = "iron";
+      hoztname = "rithviz-inspiron7570";
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit overlays system;
@@ -62,15 +64,9 @@
         };
       };
       overlays = import ./lib/overlays.nix { inherit inputs system; };
-    in
-    {
-      inherit (inputs.flake-schemas) schemas;
-      apps.${system}."nix" = {
-        type = "app";
-        program = "${pkgs.nix-schema}/bin/nix-schema";
-      };
-      homeConfigurations = {
-        ${username} = home-manager.lib.homeManagerConfiguration {
+      homeConfig =
+        username:
+        home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
             ./home/${username}
@@ -83,6 +79,16 @@
             inherit navi_config;
           };
         };
+    in
+    {
+      inherit (inputs.flake-schemas) schemas;
+      apps.${system}."nix" = {
+        type = "app";
+        program = "${pkgs.nix-schema}/bin/nix-schema";
+      };
+      homeConfigurations = {
+        ${user} = homeConfig user;
+        ${uzer} = homeConfig uzer;
       };
       nixosConfigurations = {
         ${hostname} = nixpkgs.lib.nixosSystem rec {
@@ -98,11 +104,14 @@
             ./hosts/${hostname}/configuration.nix
             home-manager.nixosModules.home-manager
             {
-              home-manager.useGlobalPkgs = true;
-              # https://nix-community.github.io/home-manager/index.xhtml#sec-install-nixos-module
-              home-manager.useUserPackages = false; # can be false if want ~/.nix-profile
-              home-manager.users.${username} = import ./home/${username};
-              home-manager.extraSpecialArgs = specialArgs;
+              home-manager = {
+                useGlobalPkgs = true;
+                # https://nix-community.github.io/home-manager/index.xhtml#sec-install-nixos-module
+                useUserPackages = false; # can be false if want ~/.nix-profile
+                # this is nixos and has no uzer|rithviz user
+                users.${user} = import ./home/${user};
+                extraSpecialArgs = specialArgs;
+              };
             }
           ];
           specialArgs = {
