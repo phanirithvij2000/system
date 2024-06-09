@@ -256,3 +256,10 @@ sudo nix-collect-garbage -d
 dprint fmt
 nix fmt
 ```
+
+### nix-olde
+
+```
+nix run github:trofi/nix-olde -- -f ".#iron"
+nix run github:trofi/nix-olde -- -f ".#defaultIso"
+```
