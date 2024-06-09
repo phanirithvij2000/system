@@ -8,14 +8,37 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # https://github.com/workflow/dotfiles/blob/main/.github/workflows/nixos.yml
+      - name: "Create Dir for Mounting moar Disk Space ❄"
+        run: |
+          sudo mkdir /nix
+      - name: "Maximize Disk Space"
+        run: |
+          sudo rm -rf $AGENT_TOOLSDIRECTORY
+          sudo rm -rf /usr/local/.ghcup
+          sudo rm -rf /usr/local/share/powershell
+          sudo rm -rf /usr/local/share/chromium
+          sudo rm -rf /usr/local/lib/node_modules
+          sudo rm -rf /usr/local/lib/heroku
+          sudo rm -rf /var/lib/docker/overlay2
+          sudo rm -rf /home/linuxbrew
+          sudo rm -rf /home/runner/.rustup
+      - name: "Maximize Disk Space 😈"
+        uses: easimon/maximize-build-space@v8
+        with:
+          root-reserve-mb: 8192
+          swap-size-mb: 1024
+          build-mount-path: /nix
+          remove-dotnet: "true"
+          remove-android: "true"
+          remove-haskell: "true"
+          remove-codeql: "true"
+          remove-docker-images: "true"
       - uses: actions/checkout@v4
        # enables flakes, nix-command, sets runner as trusted user
       - uses: DeterminateSystems/nix-installer-action@v12
       - uses: DeterminateSystems/magic-nix-cache-action@main
-      - name: keypair for nix-serve
-        shell: bash
-        run: |
-          source .github/scripts/nix-serve.sh >/dev/null 2>&1
+
       # crazy thing, magic-nix-cache runs on top of attic
       # - name: Debugging with browser
       #   uses: fawazahmed0/action-debug@v2
@@ -29,6 +52,10 @@ jobs:
       - run: nix build .#nixosConfigurations.iron.config.system.build.toplevel
       - run: nix build .#homeConfigurations.rithvij.activationPackage
       - run: nix build .#homeConfigurations.rithviz.activationPackage
+      - name: keypair for nix-serve and run
+        shell: bash
+        run: |
+          source .github/scripts/nix-serve.sh >/dev/null 2>&1
       - run: nix profile install nixpkgs#cloudflared
       # optionally configure a fixed cloudflare tunnel endpoint (requires login)
       # - name: configure cloudflare tunnel endpoint
