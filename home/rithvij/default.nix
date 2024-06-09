@@ -44,7 +44,7 @@
     devbox
 
     # desktop apps
-    microsoft-edge # for its bing ai integration (slow af)
+    #microsoft-edge # for its bing ai integration (slow af)
     tor-browser
     telegram-desktop
     qbittorrent
