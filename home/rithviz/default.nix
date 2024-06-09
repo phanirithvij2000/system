@@ -21,7 +21,6 @@
     bashmount # very useful
     btop # fancy process manager like htop
     cmatrix # screensaver
-    delta # fancy diff
     difftastic # fancy diff
     duf # fancy du
     eget # download binaries from github releases
@@ -30,19 +29,14 @@
     exercism # TODO remove, some progamming exercises or shit
     fzf # fuzzy file finder
     gdu # disk usage analyzer tui
-    gh # github api cli, dl releases, checkout prs etc
-    git # version control, backup
     git-filter-repo # git history rewrite
-    gitbatch # batch pull/fetch subfolder git repos
     go-task # TODO ?
     gopass # passwords and secrets manager
     gopass-hibp # plugin for gopass
     htop # process monitor
-    hub # github client, create repos etc
     hugo # static site generator
     jid # jq query repl
     jq # json cli
-    lazygit # git tui
     lazydocker # docker tui
     lf # file manager tui
     navi # bookmark commands and pkm (personal knowlegde management)
