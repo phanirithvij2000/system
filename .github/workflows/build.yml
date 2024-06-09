@@ -1,0 +1,39 @@
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  # cron: weekly
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+       # enables flakes, nix-command, sets runner as trusted user
+      - uses: DeterminateSystems/nix-installer-action@v12
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - run: nix profile install nixpkgs#cloudflared
+      # optionally configure a fixed cloudflare tunnel endpoint (requires login)
+      # - name: configure cloudflare tunnel endpoint
+      - name: keypair for nix-serve
+        shell: bash
+        run: |
+          source .github/scripts/run.sh > /dev/null 2>&1
+      - name: expose nix-serve server
+        run: |
+          cloudflared tunnel --url http://localhost:5000 > cloudflared.log 2>&1 &
+      # crazy thing, magic-nix-cache runs on top of attic
+      # - name: Debugging with browser
+      #   uses: fawazahmed0/action-debug@v2
+      # https://sourcegraph.com/github.com/osdev-wiki/wiki/-/blob/.github/workflows/sitegen.yml?L43:13-43:25
+      - name: cache dependency builds
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/nix/
+          key: ${{ runner.os }}
+      - run: nix build .#nixosConfigurations.iron.config.system.build.toplevel
+      - run: nix build .#homeConfigurations.rithvij.activationPackage
+      - run: nix build .#homeConfigurations.rithviz.activationPackage
+      - run: .github/scripts/loop.sh
+        shell: bash
