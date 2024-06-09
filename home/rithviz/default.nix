@@ -11,7 +11,7 @@
   home.homeDirectory = "/home/rithviz";
   news.display = "silent";
 
-  imports = [ ../modules/git.nix ];
+  imports = [ ../modules/git ];
 
   home.packages = with pkgs; [
     air # reload go run

@@ -6,7 +6,7 @@
     ../modules/bookmarks
     ../modules/editors.nix
 
-    ../modules/git.nix
+    ../modules/git
     ../modules/games
 
     ../modules/rss.nix

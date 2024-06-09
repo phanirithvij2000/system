@@ -1,0 +1,32 @@
+{ pkgs, ... }:
+{
+  home.packages = [
+    pkgs.gitbatch
+    pkgs.hub
+  ];
+  imports = [
+    ./gh.nix
+    ./lazygit.nix
+  ];
+  programs = {
+    git = {
+      enable = true;
+      userName = "phanirithvij";
+      userEmail = "phanirithvij2000@gmail.com";
+      delta.enable = true;
+      extraConfig = {
+        init = {
+          defaultBranch = "main";
+        };
+        url = {
+          "https://github.com/" = {
+            insteadOf = [
+              "gh:"
+              "github:"
+            ];
+          };
+        };
+      };
+    };
+  };
+}
