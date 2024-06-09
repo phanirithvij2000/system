@@ -9,9 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # https://github.com/workflow/dotfiles/blob/main/.github/workflows/nixos.yml
-      - name: "Create Dir for Mounting moar Disk Space ❄"
-        run: |
-          sudo mkdir /nix
       - name: "Maximize Disk Space"
         run: |
           sudo rm -rf $AGENT_TOOLSDIRECTORY
