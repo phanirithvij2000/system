@@ -11,6 +11,8 @@
   home.homeDirectory = "/home/rithviz";
   news.display = "silent";
 
+  imports = [ ../modules/git.nix ];
+
   home.packages = with pkgs; [
     air # reload go run
     #asdf-vm #package version manager, using rtx now

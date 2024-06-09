@@ -1,17 +1,17 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./appimgs.nix
-    ./android.nix
-    ./bookmarks
-    ./editors.nix
+    ../modules/appimgs.nix
+    ../modules/android.nix
+    ../modules/bookmarks
+    ../modules/editors.nix
 
-    ./git.nix
-    ./games
+    ../modules/git.nix
+    ../modules/games
 
-    ./rss.nix
-    ./shells
-    ./tmux.nix
+    ../modules/rss.nix
+    ../modules/shells
+    ../modules/tmux.nix
   ];
 
   home.username = "rithvij";
