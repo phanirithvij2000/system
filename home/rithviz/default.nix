@@ -11,7 +11,10 @@
   home.homeDirectory = "/home/rithviz";
   news.display = "silent";
 
-  imports = [ ../modules/git ];
+  imports = [
+    ../modules/git
+    ../modules/bookmarks
+  ];
 
   home.packages = with pkgs; [
     air # reload go run
@@ -24,7 +27,6 @@
     difftastic # fancy diff
     duf # fancy du
     eget # download binaries from github releases
-    espanso # TODO on wayland it is espanso-wayland
     eza # fancy ls
     exercism # TODO remove, some progamming exercises or shit
     fzf # fuzzy file finder
@@ -39,7 +41,6 @@
     jq # json cli
     lazydocker # docker tui
     lf # file manager tui
-    navi # bookmark commands and pkm (personal knowlegde management)
     newsboat # rss
     fastfetch # sysinfo summary
     neovim # editor but slow (for some weird reason)
