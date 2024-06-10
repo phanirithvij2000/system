@@ -15,7 +15,6 @@ main system configuration including dotfiles, will recreate repo with private do
   - xc, dprint, navi, fzf, lazygit
   - move away from xc? taskfile, justfile, makefile, magefile, navi
 - [ ] gha steps
-  - get more space (see @workflow's gha already doing this)
   - disable hardware-configuration.nix before building?
   - caching limit needs to be taken into consideration
     - disable qbittorrent, firefox, large packages
@@ -27,8 +26,13 @@ main system configuration including dotfiles, will recreate repo with private do
   - or have a full build action which does not use cache
     - or in a different repo? but can 10GB hold it
     - iron hm seems to be 7GB
-  - whacky gha runner home-manager profile
-  - [ ] repo/cache per host?
+  - whacky
+    - [ ] gha runner home-manager profile
+    - [ ] repo/cache per host?
+  - [ ] detect files changed and do only nixos or hm build to not waste gha resources
+  - [ ] pre-commit hooks and pre-commit hooks step in gha like npins
+    - [ ] remove xc? somehow get navi cheats to work via cli without duplication
+      - nix attrsets for commands and converted to navi, espanso, etc? or ref by id/slug each command?
 - [ ] minimal profile
   - remove alsa, 32bit
   - documentation enable false
