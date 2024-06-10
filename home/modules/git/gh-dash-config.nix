@@ -61,7 +61,6 @@
     "golang/go" = "/tmp/fk/go";
   };
   keybindings = null;
-  theme = null;
   pager = {
     diff = "delta";
   };
