@@ -31,8 +31,13 @@ main system configuration including dotfiles, will recreate repo with private do
     - [ ] repo/cache per host?
   - [ ] detect files changed and do only nixos or hm build to not waste gha resources
   - [ ] pre-commit hooks and pre-commit hooks step in gha like npins
-    - [ ] remove xc? somehow get navi cheats to work via cli without duplication
-      - nix attrsets for commands and converted to navi, espanso, etc? or ref by id/slug each command?
+    - xc fmt
+    - detect if non code change and append [skip ci] to commit msg
+  - [ ] remove xc? somehow get navi cheats to work via cli without duplication
+    - nix attrsets for commands and converted to navi, espanso, etc? or ref by id/slug each command?
+    - or just yaml -> json -> nix lib.importJSON/builtins.fromJson
+        - builtins.fromyaml not there there is an open pr or issue
+    - raw text for cheats, etc
 - [ ] minimal profile
   - remove alsa, 32bit
   - documentation enable false
