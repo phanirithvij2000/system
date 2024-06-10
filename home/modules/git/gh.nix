@@ -15,5 +15,8 @@ in
       gh-notify
     ];
   };
-  programs.gh-dash.enable = true;
+  programs.gh-dash = {
+    enable = true;
+    settings = import ./gh-dash-config.nix;
+  };
 }
