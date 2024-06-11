@@ -7,5 +7,17 @@
   services.espanso = {
     enable = true;
     # TODO config, matches
+    # gh auth token | xclip -sel clipboard
+    # https://github.com/phanirithvij
+    # https://github.com/phanirithvij/system
+    # @phanirithvij
+    # private matches
+    # TODO other crazy things
+    # navi matches module
+    # passwords matches
+    # authpass module
+    # lesspass module
+    # gopass module
+    # buku module
   };
 }
