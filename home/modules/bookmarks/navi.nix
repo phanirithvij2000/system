@@ -3,7 +3,13 @@ let
   inherit (pkgs) navi;
 in
 {
-  programs.tealdeer.enable = true;
+  programs.tealdeer = {
+    enable = true;
+    settings = {
+      display.use_pager = true;
+      updates.auto_update = true;
+    };
+  };
   programs.navi = {
     enable = true;
     enableBashIntegration = true;
