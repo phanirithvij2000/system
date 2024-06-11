@@ -5,8 +5,10 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    blobdrop.url = "github:vimpostor/blobdrop";
-    blobdrop.inputs.nixpkgs.follows = "nixpkgs";
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid/release-23.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # https://github.com/gvolpe/nix-config/blob/d983b5e6d8c4d57152ef31fa7141d3aad465123a/flake.nix#L17
     flake-schemas.url = "github:gvolpe/flake-schemas";
@@ -36,6 +38,9 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    blobdrop.url = "github:vimpostor/blobdrop";
+    blobdrop.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -43,6 +48,7 @@
       self,
       nixpkgs,
       home-manager,
+      nix-on-droid,
       blobdrop,
       navi_config,
       nixos-cosmic,
@@ -52,8 +58,10 @@
     let
       user = "rithvij";
       uzer = "rithviz";
+      droid = "droid";
       host = "iron";
       hozt = "rithviz-inspiron7570";
+      hostdroid = "localhost"; # not possible to change it
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit overlays system;
@@ -73,7 +81,6 @@
 
             nix-index-database.hmModules.nix-index
             { programs.nix-index-database.comma.enable = true; }
-            { programs.bottom.enable = nixpkgs.lib.mkForce false; }
           ];
           extraSpecialArgs = {
             inherit navi_config;
@@ -97,6 +104,12 @@
           username = uzer;
           hostname = hozt;
         };
+        "${droid}@${hostdroid}" = homeConfig {
+          username = droid;
+          hostname = hostdroid;
+        };
+        # TODO runner #different repo with npins?
+        # TODO nixos live user
       };
       nixosConfigurations = {
         ${host} = nixpkgs.lib.nixosSystem rec {
@@ -135,6 +148,10 @@
           };
           modules = [ ./hosts/iso.nix ];
         };
+      };
+      # keep all nix-on-droid hosts in same state
+      nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
+        modules = [ ./hosts/droid.nix ];
       };
       formatter.${system} = pkgs.nixfmt-rfc-style;
     };
