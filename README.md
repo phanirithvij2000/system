@@ -11,6 +11,8 @@ main system configuration including dotfiles, will recreate repo with private do
     - use ext drive as backup nix store and nix-serve it when detected?
       and use as another trusted substitutor?
       - and never gc it?
+      - makes no sense, substitutor won't solve the space issue
+        - nfs mount?
 - [ ] shell.nix
   - xc, dprint, navi, fzf, lazygit
   - move away from xc? taskfile, justfile, makefile, magefile, navi
