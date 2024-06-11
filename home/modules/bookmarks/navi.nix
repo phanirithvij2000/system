@@ -1,6 +1,6 @@
 { navi_config, pkgs, ... }:
 let
-  navi = pkgs.navi;
+  inherit (pkgs) navi;
 in
 {
   programs.tealdeer.enable = true;

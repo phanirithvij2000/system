@@ -38,7 +38,7 @@ main system configuration including dotfiles, will recreate repo with private do
   - [ ] remove xc? somehow get navi cheats to work via cli without duplication
     - nix attrsets for commands and converted to navi, espanso, etc? or ref by id/slug each command?
     - or just yaml -> json -> nix lib.importJSON/builtins.fromJson
-        - builtins.fromyaml not there there is an open pr or issue
+      - builtins.fromyaml non-existent, there's an open pr NixOS/nix#7340
     - raw text for cheats, etc
 - [ ] minimal profile
   - remove alsa, 32bit
