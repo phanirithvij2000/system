@@ -95,6 +95,10 @@
         type = "app";
         program = "${pkgs.nix-schema}/bin/nix-schema";
       };
+      apps."aarch64-linux"."nix" = {
+        type = "app";
+        program = "${pkgs.nix-schema}/bin/nix-schema";
+      };
       homeConfigurations = {
         "${user}@${host}" = homeConfig {
           username = user;
