@@ -1,9 +1,10 @@
-{ lib, ... }:
+{ lib, modulesPath, ... }:
 {
   # systemd-profiles idea I had can now be acheived
   specialisation = {
     tty = {
       configuration = {
+        imports = [ "${modulesPath}/profiles/minimal.nix" ];
         hardware.opentabletdriver.enable = lib.mkForce false;
         services = {
           xserver.enable = lib.mkForce false;
