@@ -4,6 +4,9 @@ main system configuration including dotfiles, will recreate repo with private do
 
 ## TODO
 
+- [ ] modules, profiles, applications
+  - see https://github.com/Guanran928/flake
+  - allows others to import?
 - [ ] home-manager for different hosts
   - shared /nix partition r/w?
     - garbage collection might get fked
