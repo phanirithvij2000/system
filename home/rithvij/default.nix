@@ -133,7 +133,7 @@ in
 
   programs.micro.enable = true;
   programs.mpv = {
-    enable = false;
+    enable = true;
     config = {
       auto-window-resize = false;
     };
