@@ -127,17 +127,16 @@
             }
             #nixos-cosmic.nixosModules.default
             ./hosts/${host}/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                # https://nix-community.github.io/home-manager/index.xhtml#sec-install-nixos-module
-                useUserPackages = false; # can be false if want ~/.nix-profile
-                # this is nixos and has no uzer|rithviz user
-                users.${user} = import ./home/${user};
-                extraSpecialArgs = specialArgs;
-              };
-            }
+            #{
+            #  home-manager = {
+            #    useGlobalPkgs = true;
+            # https://nix-community.github.io/home-manager/index.xhtml#sec-install-nixos-module
+            #    useUserPackages = false; # can be false if want ~/.nix-profile
+            # this is nixos and has no uzer|rithviz user
+            #    users.${user} = import ./home/${user};
+            #    extraSpecialArgs = specialArgs;
+            #  };
+            #}
           ];
           specialArgs = {
             inherit navi_config;
