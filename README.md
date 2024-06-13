@@ -4,6 +4,12 @@ main system configuration including dotfiles, will recreate repo with private do
 
 ## TODO
 
+- [ ] https://elatov.github.io/2022/01/building-a-nix-package
+  - add distrobox-tui, gh-i
+  - add self as maintainer
+  - https://sandervanderburg.blogspot.com/2014/07/managing-private-nix-packages-outside.html
+  - https://sandervanderburg.blogspot.com/2012/11/an-alternative-explaination-of-nix.html
+  - https://github.com/DeterminateSystems/update-flake-lock
 - [ ] modules, profiles, applications
   - see https://github.com/Guanran928/flake
   - allows others to import?
@@ -38,6 +44,7 @@ main system configuration including dotfiles, will recreate repo with private do
   - [ ] pre-commit hooks and pre-commit hooks step in gha like npins
     - xc fmt
     - detect if non code change and append [skip ci] to commit msg
+    - https://github.com/K900/vscode-remote-workaround/blob/main/flake.nix
   - [ ] remove xc? somehow get navi cheats to work via cli without duplication
     - nix attrsets for commands and converted to navi, espanso, etc? or ref by id/slug each command?
     - or just yaml -> json -> nix lib.importJSON/builtins.fromJson
