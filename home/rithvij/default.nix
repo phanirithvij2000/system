@@ -173,7 +173,7 @@ in
         nix_arguments = "--flake ${configDir}#${hostname}";
         home_manager_arguments = [
           "--flake"
-          "${configDir}#${username}"
+          "${configDir}#${username}@${hostname}"
         ];
       };
     };
