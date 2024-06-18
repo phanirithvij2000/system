@@ -161,8 +161,8 @@
       };
       systemConfigs = rec {
         default = gha;
-        gha = system-manager.lib.makeSystemConfig { modules = [ ./hosts/gha/configuration.nix ]; };
-        vps = system-manager.lib.makeSystemConfig { modules = [ ./hosts/vps/configuration.nix ]; };
+        gha = system-manager.lib.makeSystemConfig { modules = [ ./hosts/msystems/gha/configuration.nix ]; };
+        vps = system-manager.lib.makeSystemConfig { modules = [ ./hosts/msystems/vps/configuration.nix ]; };
       };
       formatter.${system} = pkgs.nixfmt-rfc-style;
     };
