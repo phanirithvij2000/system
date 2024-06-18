@@ -10,6 +10,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    system-manager = {
+      url = "github:numtide/system-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # https://github.com/gvolpe/nix-config/blob/d983b5e6d8c4d57152ef31fa7141d3aad465123a/flake.nix#L17
     flake-schemas.url = "github:gvolpe/flake-schemas";
     # nix client with schema support: see https://github.com/NixOS/nix/pull/8892
@@ -53,6 +58,7 @@
       navi_config,
       nixos-cosmic,
       nix-index-database,
+      system-manager,
       ...
     }@inputs:
     let
@@ -152,6 +158,11 @@
       # keep all nix-on-droid hosts in same state
       nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
         modules = [ ./hosts/droid.nix ];
+      };
+      systemConfigs = rec {
+        default = gha;
+        gha = system-manager.lib.makeSystemConfig { modules = [ ./hosts/gha/configuration.nix ]; };
+        vps = system-manager.lib.makeSystemConfig { modules = [ ./hosts/vps/configuration.nix ]; };
       };
       formatter.${system} = pkgs.nixfmt-rfc-style;
     };

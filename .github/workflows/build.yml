@@ -48,10 +48,11 @@ jobs:
           path: |
             ~/.cache/nix/
           key: ${{ runner.os }}
+      - run: nix run 'github:numtide/system-manager' -- switch --flake '.'
       #- run: nix build .#nixosConfigurations.iron.config.system.build.toplevel
-      - run: nix run github:viperML/nh -- os build -H iron -s tty . --no-nom
-      - run: nix build .#homeConfigurations."rithvij@iron".activationPackage
-      - run: nix build .#homeConfigurations."rithviz@rithviz-inspiron7570".activationPackage
+      #- run: nix run github:viperML/nh -- os build -H iron -s tty . --no-nom
+      #- run: nix build .#homeConfigurations."rithvij@iron".activationPackage
+      #- run: nix build .#homeConfigurations."rithviz@rithviz-inspiron7570".activationPackage
       #- name: keypair for nix-serve and run
       #  shell: bash
       #  run: |
