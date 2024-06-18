@@ -163,13 +163,26 @@ main system configuration including dotfiles, will recreate repo with private do
 - [ ] system-manager
   - https://github.com/numtide/system-manager
   - [ ] vps config
+    - [x] init
+    - hm
+    - services: nix-serve, attic, headscale, tailscale, rustdesk-server, syncplay
   - [ ] gha config
+    - [x] init
+    - hm (when using debug time action either upterm or cloudflared tunnel)
 - [ ] nix-on-droid
   - two identical?
   - [ ] remote build on linux
   - [ ] distributed builds on both devices
   - proot is unusably slow
 - [ ] Ansible playbooks??
+  - Not related to nix
+  - Mainly for installing nix on vps
+  - Same purpose as gha action yml
+  - And Termux ofc, not possible to use nix
+- [ ] Teldrive
+  - on vps and local (i.e system-manager module and nixos module, services)
+  - maintainer on nixpkgs if not there
+  - Fork and add drag drop, existing listings, remember upload location and send pr for 1, 3
 
 ## NOTES
 
