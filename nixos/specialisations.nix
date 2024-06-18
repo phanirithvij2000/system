@@ -6,8 +6,8 @@
       configuration = {
         imports = [ "${modulesPath}/profiles/minimal.nix" ];
         hardware.opentabletdriver.enable = lib.mkForce false;
-	# https://github.com/NixOS/nixpkgs/issues/102137
-	environment.noXlibs = lib.mkForce false;
+        # https://github.com/NixOS/nixpkgs/issues/102137
+        environment.noXlibs = lib.mkForce false;
         services = {
           xserver.enable = lib.mkForce false;
           displayManager.sddm.enable = lib.mkForce false;
@@ -21,7 +21,7 @@
     ly = {
       configuration = {
         services = {
-	  # disable temporary zig build fails
+          # disable temporary zig build fails
           displayManager.ly.enable = false;
           displayManager.ly.settings = {
             load = false;
