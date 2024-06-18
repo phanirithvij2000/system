@@ -8,12 +8,11 @@ _: {
     executable = true;
   };
 
-  #subtitlecomposer, I need git version because stable is 6months old
   #TODO write an overlay to build from git rev instead later. For now download from their releases on home-page
-  home.file."Desktop/subtitlecomposer-git-latest-x86_64.AppImage" = {
+  home.file."Desktop/subtitlecomposer-latest-x86_64.AppImage" = {
     source = builtins.fetchurl {
-      url = "https://downloadcontent.opensuse.org/repositories/home:/maxrd2/AppImage/subtitlecomposer-git-latest-x86_64.AppImage";
-      sha256 = "028bl67lv8cismd7jgxhqgvjqlan9c9yc4b4xzzwn3h0mmp2hlra";
+      url = "https://downloadcontent.opensuse.org/repositories/home:/maxrd2/AppImage/subtitlecomposer-latest-x86_64.AppImage";
+      sha256 = "00f6xifgdqjld4ppqlw0dc22grfavmld920nfgick5rq1wnib16z";
     };
     executable = true;
   };
