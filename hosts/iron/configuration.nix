@@ -260,9 +260,12 @@ in
   programs.neovim.enable = true;
   services.openssh.enable = true;
 
-  services.redis.servers.redrum = {
-    enable = true;
-    port = 6379;
+  services.redis = {
+    package = pkgs.valkey;
+    servers.redrum = {
+      enable = true;
+      port = 6379;
+    };
   };
 
   networking.firewall = {
