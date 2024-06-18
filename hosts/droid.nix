@@ -49,4 +49,11 @@
   '';
 
   time.timeZone = "Asia/Kolkata";
+
+  home-manager = {
+    backupFileExtension = ".hm.bak";
+    useGlobalPkgs = true;
+
+    config = ../home/droid.nix;
+  };
 }
