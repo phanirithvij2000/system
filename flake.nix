@@ -58,7 +58,7 @@
     let
       user = "rithvij";
       uzer = "rithviz";
-      droid = "droid";
+      droid = "nix-on-droid";
       host = "iron";
       hozt = "rithviz-inspiron7570";
       hostdroid = "localhost"; # not possible to change it
