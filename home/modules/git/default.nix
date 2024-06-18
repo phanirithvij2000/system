@@ -11,6 +11,7 @@
   programs = {
     git = {
       enable = true;
+      package = pkgs.gitFull;
       userName = "phanirithvij";
       userEmail = "phanirithvij2000@gmail.com";
       delta.enable = true;

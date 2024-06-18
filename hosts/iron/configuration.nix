@@ -194,7 +194,6 @@ in
 
       fish # programs fish
       go
-      git
       fastfetch
       gparted
       tree
@@ -243,6 +242,11 @@ in
     ];
     variables.EDITOR = "nvim";
     variables.VISUAL = "nvim";
+  };
+
+  programs.git = {
+    enable = true;
+    package = pkgs.gitFull;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
