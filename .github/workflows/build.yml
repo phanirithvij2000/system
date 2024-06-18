@@ -48,7 +48,15 @@ jobs:
           path: |
             ~/.cache/nix/
           key: ${{ runner.os }}
-      - run: nix run 'github:numtide/system-manager' -- switch --flake '.'
+      - id: which_nix
+        run: |
+          nix_path=$(which nix)
+          echo "nix_path=$nix_path" >> $GITHUB_ENV
+
+      - run: |
+          sudo $NIX_PATH run github:numtide/system-manager -- switch --flake .
+        env:
+          NIX_PATH: ${{ env.nix_path }}
       #- run: nix build .#nixosConfigurations.iron.config.system.build.toplevel
       #- run: nix run github:viperML/nh -- os build -H iron -s tty . --no-nom
       #- run: nix build .#homeConfigurations."rithvij@iron".activationPackage
