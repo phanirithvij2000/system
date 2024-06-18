@@ -49,7 +49,7 @@ jobs:
             ~/.cache/nix/
           key: ${{ runner.os }}
       - run: nix profile install github:numtide/system-manager github:viperML/nh
-      - run: sudo system-manager -- switch --flake .
+      - run: sudo $(which system-manager) -- switch --flake .
       - run: nix build .#nixosConfigurations.iron.config.system.build.toplevel
       - run: nh -- os build -H iron -s tty . --no-nom
       - run: nix build .#homeConfigurations."rithvij@iron".activationPackage
