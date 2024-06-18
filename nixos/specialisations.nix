@@ -6,6 +6,7 @@
       configuration = {
         imports = [ "${modulesPath}/profiles/minimal.nix" ];
         hardware.opentabletdriver.enable = lib.mkForce false;
+	environment.noXlibs = lib.mkForce false;
         services = {
           xserver.enable = lib.mkForce false;
           displayManager.sddm.enable = lib.mkForce false;
