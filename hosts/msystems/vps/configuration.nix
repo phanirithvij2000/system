@@ -2,39 +2,35 @@
   config,
   lib,
   pkgs,
+  nixosModulesPath,
   ...
 }:
-
 {
-  config = {
+  imports = [ ] ++ map (path: nixosModulesPath + path) [ "/services/networking/syncplay.nix" ];
+  config = rec {
     nixpkgs.hostPlatform = "x86_64-linux";
 
     environment = {
-      etc = {
-        "foo.conf".text = ''
-          launch_the_rockets = true
-        '';
-      };
       systemPackages = [
-        pkgs.ripgrep
+        pkgs.ripgrep # All hm, only systemd related should stay here I think
         pkgs.fd
-        pkgs.hello
+        #pkgs.lazygit
       ];
     };
 
-    systemd.services = {
-      foo = {
-        enable = true;
-        serviceConfig = {
-          Type = "oneshot";
-          RemainAfterExit = true;
-        };
-        wantedBy = [ "system-manager.target" ];
-        script = ''
-          ${lib.getBin pkgs.hello}/bin/hello
-          echo "We launched the rockets!"
-        '';
-      };
+    # https://github.com/numtide/system-manager/blob/main/nix/modules/upstream/nixpkgs/nginx.nix
+    #systemd.services.syncplay = lib.mkIf config.services.syncplay.enable {
+    systemd.services.syncplay = lib.mkIf services.syncplay.enable {
+      wantedBy = lib.mkForce [ "system-manager.target" ];
     };
+    services.syncplay.enable = true;
+    #services.nginx.enable = true;
+    #services.redis = {
+    #  package = pkgs.valkey;
+    #  servers.redrum = {
+    #    enable = true;
+    #    port = 6379;
+    #  };
+    #};
   };
 }
