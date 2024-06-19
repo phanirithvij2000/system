@@ -12,9 +12,14 @@
 
     environment = {
       systemPackages = [
-        pkgs.ripgrep # All hm, only systemd related should stay here I think
-        pkgs.fd
-        #pkgs.lazygit
+        # All hm, only systemd related should stay here I think
+        # but for root user maybe this is the spot
+        pkgs.ripgrep
+        pkgs.fzf
+        pkgs.sysz
+        pkgs.lf
+        pkgs.lazygit
+        pkgs.tmux
       ];
     };
 
