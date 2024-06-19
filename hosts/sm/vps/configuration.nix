@@ -23,11 +23,6 @@
       ];
     };
 
-    # https://github.com/numtide/system-manager/blob/main/nix/modules/upstream/nixpkgs/nginx.nix
-    #systemd.services.syncplay = lib.mkIf config.services.syncplay.enable {
-    systemd.services.syncplay = lib.mkIf services.syncplay.enable {
-      wantedBy = lib.mkForce [ "system-manager.target" ];
-    };
     services.syncplay.enable = true;
     #services.nginx.enable = true;
     #services.redis = {
