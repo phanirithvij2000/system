@@ -183,6 +183,9 @@ main system configuration including dotfiles, will recreate repo with private do
   - on vps and local (i.e system-manager module and nixos module, services)
   - maintainer on nixpkgs it's not there
   - Fork and add drag drop, existing listings, remember upload location and send pr for 1, 3
+- [ ] cloudflared tunnel nixos service
+    - multiple service (redis like)
+    - write endpoint to /run/secrets or something so others can use it
 
 ## NOTES
 
