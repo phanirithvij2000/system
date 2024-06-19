@@ -18,6 +18,7 @@ in
 
     ../modules/git
     ../modules/games
+    ../modules/media
 
     ../modules/rss.nix
     ../modules/shells
@@ -132,13 +133,6 @@ in
   home.file.".config/lf".source = ./config/lf;
 
   programs.micro.enable = true;
-  programs.mpv = {
-    enable = true;
-    config = {
-      auto-window-resize = false;
-    };
-    scripts = with pkgs; [ mpvScripts.uosc ];
-  };
 
   programs.poetry.enable = true;
 
