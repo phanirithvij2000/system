@@ -6,7 +6,7 @@
   ...
 }:
 {
-  imports = [ ] ++ map (path: nixosModulesPath + path) [ "/services/networking/syncplay.nix" ];
+  imports = [ ../modules/syncplay.nix ];
   config = rec {
     nixpkgs.hostPlatform = "x86_64-linux";
 
