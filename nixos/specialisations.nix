@@ -74,15 +74,16 @@
             settings = {
               default_session.command = ''
                 ${pkgs.greetd.tuigreet}/bin/tuigreet \
-                  --time \
-                  --asterisks \
-                  --user-menu
+                --time \
+                --asterisks \
+                --user-menu \
+                --cmd startplasma-x11
               '';
             };
           };
 
           xserver.enable = true;
-	  xserver.displayManager.startx.enable = true;
+          xserver.displayManager.startx.enable = true;
           xserver.displayManager.lightdm.enable = lib.mkForce false;
 
           desktopManager.plasma6.enable = true;
