@@ -46,6 +46,16 @@
 
     blobdrop.url = "github:vimpostor/blobdrop";
     blobdrop.inputs.nixpkgs.follows = "nixpkgs";
+
+    flake-utils.url = "github:numtide/flake-utils";
+
+    rust-overlay.url = "github:oxalica/rust-overlay";
+    rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
+
+    lemurs.url = "github:coastalwhite/lemurs";
+    lemurs.inputs.nixpkgs.follows = "nixpkgs";
+    lemurs.inputs.utils.follows = "flake-utils";
+    lemurs.inputs.rust-overlay.follows = "rust-overlay";
   };
 
   outputs =
@@ -59,6 +69,7 @@
       nixos-cosmic,
       nix-index-database,
       system-manager,
+      lemurs,
       ...
     }@inputs:
     let
@@ -143,6 +154,7 @@
           ];
           specialArgs = {
             inherit navi_config;
+            inherit lemurs;
             username = user;
             hostname = host;
           };

@@ -1,4 +1,5 @@
-_: {
+{ ... }:
+{
   imports = [ ./specialisations.nix ];
   # had to do sudo su hydra no password required
   # su - hydra asked for password
