@@ -3,6 +3,7 @@
   pkgs,
   modulesPath,
   lemurs,
+  system,
   ...
 }:
 {
@@ -10,6 +11,8 @@
   specialisation = {
     tty = {
       configuration = {
+        # The bug below with noXlibs occurs due to importing minimal profile
+        # it fails to compile ghc-8.6
         imports = [ "${modulesPath}/profiles/minimal.nix" ];
         hardware.opentabletdriver.enable = lib.mkForce false;
         # https://github.com/NixOS/nixpkgs/issues/102137
@@ -48,7 +51,8 @@
           displayManager.sddm.enable = lib.mkForce false;
           displayManager = {
             enable = true;
-            execCmd = "${pkgs.lemurs}/bin/lemurs";
+            execCmd = "${lemurs.packages.${system}.default}/bin/lemurs --no-log";
+	    logToFile = true;
           };
 
           xserver.enable = true;

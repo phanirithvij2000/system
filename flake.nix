@@ -155,6 +155,7 @@
           specialArgs = {
             inherit navi_config;
             inherit lemurs;
+            inherit system;
             username = user;
             hostname = host;
           };
