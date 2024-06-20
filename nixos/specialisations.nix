@@ -76,13 +76,13 @@
                 ${pkgs.greetd.tuigreet}/bin/tuigreet \
                   --time \
                   --asterisks \
-                  --user-menu \
-                  --cmd sway
+                  --user-menu
               '';
             };
           };
 
           xserver.enable = true;
+	  xserver.displayManager.startx.enable = true;
           xserver.displayManager.lightdm.enable = lib.mkForce false;
 
           desktopManager.plasma6.enable = true;
