@@ -71,7 +71,7 @@ in
     };
   };
   boot.binfmt = {
-    emulatedSystems = [ "aarch64-linux" ];
+    #emulatedSystems = [ "aarch64-linux" ];
   };
   programs.nix-ld.enable = true;
   services.btrfs.autoScrub = {
