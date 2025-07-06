@@ -7,6 +7,9 @@ see ./todos folder as well
 
 ## TODO
 
+- [ ] qbittorrent-nox user level systemd service
+- [ ] ssh-add systemd oneshot
+- [ ] distrobox-enter promnesia-arch oneshot
 - [ ] lazyapps in iso
   - [ ] firefox
 - [ ] awesomewm, gparted in iso
