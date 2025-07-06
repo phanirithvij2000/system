@@ -1,13 +1,14 @@
 {
   lib,
+  zip,
+  love,
+  imagemagick,
+  strip-nondeterminism,
   copyDesktopItems,
   fetchFromGitHub,
-  love,
   makeDesktopItem,
   makeWrapper,
   stdenv,
-  strip-nondeterminism,
-  zip,
 }:
 
 stdenv.mkDerivation {
@@ -33,18 +34,19 @@ stdenv.mkDerivation {
   nativeBuildInputs = [
     copyDesktopItems
     makeWrapper
+    imagemagick
     strip-nondeterminism
     zip
   ];
 
   desktopItems = [
     (makeDesktopItem {
-      name = "honey-home";
+      name = "Honey Home";
       exec = "honey-home";
       icon = "honey-home";
       comment = "Save the bees in this tiny world";
-      desktopName = "honey-home";
-      genericName = "honey-home";
+      desktopName = "Honey Home";
+      genericName = "Honey Home";
       categories = [ "Game" ];
     })
   ];
@@ -52,7 +54,14 @@ stdenv.mkDerivation {
   installPhase = ''
     runHook preInstall
     mkdir -p $out/share/pixmaps
-    install -Dm644 ${./honey-home-logo.png} $out/share/pixmaps/honey-home.png
+    # generate a logo as the title logo in the readme is too wide for an app icon
+    magick \
+      res/tree_hive.png \
+      res/hud_bee.png -gravity Center -geometry -8+15 -composite \
+      res/hud_bee.png -gravity Center -geometry -24+8 -composite \
+      honey-home-logo.png
+    install -Dm644 honey-home-logo.png $out/share/pixmaps/honey-home.png
+    rm honey-home-logo.png
     zip -9 -r honey-home.love ./*
     strip-nondeterminism --type zip honey-home.love
     install -Dm444 -t $out/share/games/lovegames/ honey-home.love
