@@ -7,6 +7,9 @@ see ./todos folder as well
 
 ## TODO
 
+- [ ] lazyapps in iso
+  - [ ] firefox
+- [ ] awesomewm, gparted in iso
 - [ ] can I use the system.extraDependencies with lazyPkgs?
 - [ ] lazyapps ensure they run in gha actions
   - [ ] add desktop icons to desktop lazyapps semi automatically?
