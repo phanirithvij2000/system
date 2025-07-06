@@ -105,6 +105,15 @@ in
     "kernel.panic" = 5;
   };
 
+  # TODO split up linux-firmware pacakge into
+  # million little pieces like alpine or a few pieces like arch
+
+  # https://serverfault.com/questions/1026598/know-which-firmware-my-linux-kernel-has-loaded-since-booting
+  # https://github.com/search?q=language%3ANix+dyndbg+AND+drivers%2Fbase%2Ffirmware_loader%2Fmain.c&type=code
+  # https://github.com/NixOS/nixpkgs/issues/148197#issuecomment-1121407764
+  #   https://github.com/samueldr/nixpkgs/commit/cbf7aa4ca386a7a0165aa0531772523760402861
+  boot.kernelParams = [ ''dyndbg="file drivers/base/firmware_loader/main.c +fmp"'' ];
+
   hardware.graphics = {
     extraPackages = with pkgs; [
       nvidia-vaapi-driver
