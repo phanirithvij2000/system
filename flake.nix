@@ -565,6 +565,7 @@
               inputs.sops-nix.nixosModules.sops
               inputs.niri.nixosModules.niri
               ./hosts/${linuxhost}/configuration.nix
+              ./nixos/modules/rustical.nix
               {
                 # prevent the patched nixpkgs from gc as well, not just flake inputs
                 system.extraDependencies = [

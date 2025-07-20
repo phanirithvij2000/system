@@ -82,6 +82,10 @@ in
 
   services.nvme-rs.enable = true;
 
+  # temporary, remove asap
+  services.rustical.enable = true;
+  # services.rustical.dataDir = "/shed/rusticalDir";
+
   # Zram allows using part of ram as a swap device
   # thus will be very fast than any ssd and also compression
   # by default uses 50% of ram as swap, make it 90%
