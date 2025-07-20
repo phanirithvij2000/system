@@ -404,6 +404,7 @@
         ];
         common-hm-modules = [
           inputs.sops-nix.homeManagerModules.sops
+          inputs.lazy-apps.homeModules.default
         ];
         hm = inputs.home-manager.packages.${system}.default;
         sysm = inputs.system-manager.packages.${system}.default;
@@ -537,6 +538,7 @@
               inputs.sops-nix.nixosModules.sops
               # home-manager baked in
               inputs.home-manager.nixosModules.home-manager
+              inputs.lazy-apps.nixosModules.default
               {
                 home-manager = {
                   useGlobalPkgs = true;
@@ -566,6 +568,7 @@
               inputs.niri.nixosModules.niri
               ./hosts/${linuxhost}/configuration.nix
               ./nixos/modules/rustical.nix
+              inputs.lazy-apps.nixosModules.default
               {
                 # prevent the patched nixpkgs from gc as well, not just flake inputs
                 system.extraDependencies = [
@@ -593,6 +596,7 @@
               ./hosts/wsl/configuration.nix
               # home-manager baked in
               inputs.home-manager.nixosModules.home-manager
+              inputs.lazy-apps.nixosModules.default
               {
                 home-manager = {
                   useGlobalPkgs = true;

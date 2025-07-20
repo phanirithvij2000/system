@@ -308,6 +308,8 @@ in
     };
   programs.fish.enable = true;
 
+  programs.lazy-apps.enable = true;
+
   # List packages installed in system profile.
   environment = {
     systemPackages = with pkgs; [
