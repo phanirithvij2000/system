@@ -66,6 +66,7 @@
         "https://notashelf.dev/rss.xml"
         "https://thedroneely.com/posts/rss.xml"
         "https://trofi.github.io/feed/rss.xml"
+        "https://gitlab.com/thelinuxcast/my-dots/-/commits/master/nixos?format=atom"
 
         # go
         "https://bbengfort.github.io/index.xml"
@@ -84,9 +85,9 @@
 
         # zig
         "https://andrewkelley.me/rss.xml"
-        "https://ziglang.org/news/index.xml"
         "https://mitchellh.com/feed.xml"
-        "https://buttondown.email/ZigSHOWTIME/rss"
+        "https://zig.show/episodes/index.xml"
+        "https://ziglang.org/news/index.xml"
 
         # hardware
         "https://blog.adafruit.com/feed/"
