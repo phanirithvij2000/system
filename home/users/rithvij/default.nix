@@ -79,7 +79,7 @@ in
 
     # TODO https://github.com/badele/nix-homelab/tree/main?tab=readme-ov-file#tui-floating-panel-configuration
     pulsemixer
-    bluetuith
+    #bluetuith # now in nurpkgs
     bluetui
     #overskride
 
