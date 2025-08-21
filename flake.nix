@@ -423,8 +423,8 @@
         nixosSystem = import (allSystemsJar.nixpkgs'.${system} + "/nixos/lib/eval-config.nix");
       in
       {
-        # TODO schema for lazyApps
-        schemas = (builtins.removeAttrs inputs.flake-schemas.schemas [ "schemas" ]) // {
+        schemas = inputs.flake-schemas.schemas // {
+          lazyApps = inputs.flake-schemas.schemas.packages;
           systemConfigs = {
             version = 1;
             doc = ''
