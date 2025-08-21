@@ -6,6 +6,7 @@
     #nixpkgs.url = "git+file:///shed/Projects/nixhome/nixpkgs/nixos-unstable?shallow=1";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs-patcher.url = "github:phanirithvij/nixpkgs-patcher/main";
 
     #nur-pkgs.url = "git+file:///shed/Projects/nur-packages";
     nur-pkgs.url = "github:phanirithvij/nur-packages/master";
@@ -74,6 +75,34 @@
     git-hooks.inputs.nixpkgs.follows = "nixpkgs";
     git-hooks.inputs.flake-compat.follows = "flake-compat";
 
+    ### nixpkgs prs patches
+
+    # follow https://github.com/NixOS/nix/issues/3920
+
+    # TODO review https://github.com/NixOS/nixpkgs/pull/428674
+    # opengist module (new)
+    nixpkgs-patch-428674.url = "https://github.com/NixOS/nixpkgs/pull/428674.patch?full_index=1";
+    nixpkgs-patch-428674.flake = false;
+    # losslesscut pr
+    nixpkgs-patch-385535.url = "https://github.com/NixOS/nixpkgs/pull/385535.patch?full_index=1";
+    nixpkgs-patch-385535.flake = false;
+    # nvme-rs module
+    nixpkgs-patch-410730.url = "https://github.com/NixOS/nixpkgs/pull/410730.patch?full_index=1";
+    nixpkgs-patch-410730.flake = false;
+    # octotail package
+    nixpkgs-patch-419929.url = "https://github.com/NixOS/nixpkgs/pull/419929.patch?full_index=1";
+    nixpkgs-patch-419929.flake = false;
+    # plexmediaserver security update
+    nixpkgs-patch-433769.url = "https://github.com/NixOS/nixpkgs/pull/433769.patch?full_index=1";
+    nixpkgs-patch-433769.flake = false;
+
+    # TODO disabling for now because of rl-2511 notes conflict
+    # opengist module (mine, its complex with createDatabase etc.)
+    #nixpkgs-patch-10.url = "https://github.com/phanirithvij/nixpkgs/commit/34be2e80d57c2fb93ece547d9b28947ae56cac92.patch?full_index=1";
+    #nixpkgs-patch-10.flake = false;
+
+    ### end patches
+
     ### Indirect dependencies, dedup
 
     #systems.url = "github:nix-systems/default-linux/main";
@@ -124,41 +153,14 @@
           lazyPkgs = import ./pkgs/lazy args;
           nurPkgs = import ./pkgs/nurpkgs.nix args;
           nvidia-offload = import ./pkgs/nvidia-offload.nix args;
-          # https://discourse.nixos.org/t/tips-tricks-for-nixos-desktop/28488/14
-          nixpkgs' = legacyPackages.applyPatches {
-            name = "nixpkgs-patched";
-            src = inputs.nixpkgs;
-            patches = builtins.map legacyPackages.fetchpatch2 [
-              # opengist module
-              # TODO renable, disabling for now because of rl-2511 notes conflict
-              /*
-                {
-                  url = "https://github.com/phanirithvij/nixpkgs/commit/34be2e80d57c2fb93ece547d9b28947ae56cac92.patch?full_index=1";
-                  hash = "sha256-Wj+HpUJZ0HqHS040AWAMg5gJKYw+ZjP2rS5Qq5g6BUA=";
-                }
-              */
-              # losslesscut pr
-              {
-                url = "https://github.com/NixOS/nixpkgs/pull/385535.patch?full_index=1";
-                hash = "sha256-3U82JyUWHfnyxfY0W25B8IGGyiarmRVt8vxFumfG+5Q=";
-              }
-              # octotail package
-              {
-                url = "https://github.com/NixOS/nixpkgs/pull/419929.patch?full_index=1";
-                hash = "sha256-dEQ3QZ6nhjGSngkrU0Q7bLXxym3SwYkTLa2+gUVtv+o=";
-              }
-              # nvme-rs module
-              {
-                url = "https://github.com/NixOS/nixpkgs/pull/410730.patch?full_index=1";
-                hash = "sha256-5YUz1uXc1B/T5d4KLfskH6bzys0Dn/vC11Dq7ik7+Os=";
-              }
-              # plexmediaserver security update
-              {
-                url = "https://github.com/NixOS/nixpkgs/pull/433769.patch?full_index=1";
-                hash = "sha256-b7CT8/SpbPNcUNhg8xxCosntqaidZz2zBpmyjOfbUuU=";
-              }
-            ];
-          };
+
+          # so nixpkgs-patcher
+          # PROS:
+          # - handles system arg
+          # - can cram in flake inputs to auto track hashes
+          # - supports fetchpatch2 supplied patches instead of cramming patches in flake inputs
+          patched = inputs.nixpkgs-patcher.lib { nixpkgsPatcher.inputs = inputs; };
+          inherit (patched) nixpkgs' args';
 
           pkgs = import nixpkgs' {
             inherit overlays system;
@@ -251,6 +253,7 @@
             pkgs
             overlays
             nixpkgs'
+            args'
             wrappedPkgs
             binaryPkgs
             boxxyPkgs
@@ -374,6 +377,9 @@
 
         pkgs = allSystemsJar.pkgs.${system};
         hmlib = allSystemsJar.hmlib.${system};
+        args' = allSystemsJar.args'.${system};
+
+        nixosSystem = import (allSystemsJar.nixpkgs'.${system} + "/nixos/lib/eval-config.nix");
 
         hmAliasModules = (import ./home/applications/alias-groups.nix { inherit pkgs; }).aliasModules;
         homeConfig =
@@ -420,13 +426,6 @@
           system.nixos.revision = inputs.nixpkgs.rev or inputs.nixpkgs.shortRev;
           system.configurationRevision = inputs.self.rev or "dirty";
         };
-
-        #inherit (inputs.nixpkgs.lib) nixosSystem;
-        # https://discourse.nixos.org/t/tips-tricks-for-nixos-desktop/28488/14
-        # IFD BAD BAD AAAAAA!
-        # only option is to maintain a fork of nixpkgs as of now
-        # follow https://github.com/NixOS/nix/issues/3920
-        nixosSystem = import (allSystemsJar.nixpkgs'.${system} + "/nixos/lib/eval-config.nix");
       in
       {
         schemas = inputs.flake-schemas.schemas // {
@@ -552,7 +551,8 @@
                 };
               }
               ./hosts/nixos/iso.nix
-            ];
+            ]
+            ++ args'.modules;
           };
           ${linuxhost} = nixosSystem {
             inherit (pkgs) lib;
@@ -572,7 +572,8 @@
                   allSystemsJar.nixpkgs'.${system}
                 ];
               }
-            ];
+            ]
+            ++ args'.modules;
             specialArgs = {
               inherit (pkgs) lib;
               flake-inputs = inputs;
@@ -609,7 +610,8 @@
                   sharedModules = common-hm-modules ++ hmAliasModules;
                 };
               }
-            ];
+            ]
+            ++ args'.modules;
             specialArgs = {
               inherit (pkgs) lib;
               flake-inputs = inputs;
